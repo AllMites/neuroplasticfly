@@ -1,0 +1,49 @@
+token: "${LICHESS_TOKEN}"        # substituted by run.py from the env; never committed
+url: "https://lichess.org/"
+
+engine:
+  dir: "/lichess-bot"
+  name: "FlyEngine"
+  protocol: "homemade"
+  ponder: false                   # a fly move is one 300 ms sim; there is nothing to ponder
+  polyglot:
+    enabled: false                # no opening book: the brain plays every move or the claim is dead
+  draw_or_resign:
+    resign_enabled: false
+    offer_draw_enabled: false
+  online_moves:
+    chessdb_book: {enabled: false}
+    lichess_cloud_analysis: {enabled: false}
+    lichess_opening_explorer: {enabled: false}
+    online_egtb: {enabled: false}
+  lichess_bot_tbs:
+    syzygy: {enabled: false}
+    gaviota: {enabled: false}
+  homemade_options: {}
+
+challenge:
+  concurrency: 1                  # one game at a time: each move costs a whole-brain sim
+  sort_by: "best"
+  accept_bot: false               # human opponents only, so the rating means what we claim
+  only_bot: false
+  max_increment: 180
+  min_increment: 0
+  min_base: 600                   # rapid and slower; the fly needs ~1 s per move
+  max_base: 10800
+  variants:
+    - standard
+  time_controls:
+    - rapid
+    - classical
+  modes:
+    - rated
+    - casual
+
+matchmaking:
+  allow_matchmaking: false        # never challenge anyone; only accept
+
+greeting:
+  hello: "hi! every one of my moves is a 300 ms simulation of a fruit fly brain. gl"
+  goodbye: "thanks for the game"
+
+pgn_directory: "/app/games/lichess_pgn"

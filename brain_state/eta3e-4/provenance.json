@@ -1,0 +1,25 @@
+{
+ "song_pairs": {
+  "misery": "punish",
+  "skyhigh": "reward"
+ },
+ "us_path": "dan",
+ "eta": 0.0003,
+ "lam": 0.01,
+ "n_train": 30,
+ "kc_hz": 50.0,
+ "audio_gain": 3.0,
+ "brain": "data/brain_gpu.npz",
+ "flywatch_gain": 1.0,
+ "song_sha256": {
+  "misery": "5d4a2d752aa71269130a8189bc5af9793bae3fcea57166eee96da40682ea1c10",
+  "skyhigh": "997f479e39478d3ec461e53fd9847b77cd5cfd2313b0b1a5f276d1457426bea2",
+  "mozart": "e9858acda62126330af470619579fd1cfdf94793a403a64f3abc5412baa38e8e"
+ },
+ "summary": {
+  "mean_frac": -0.04696374014019966,
+  "min_frac": -0.8910000324249268,
+  "n_at_floor": 445,
+  "sha": "eae132d7abfeee78"
+ }
+}

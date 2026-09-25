@@ -1,0 +1,33 @@
+{
+ "song_pairs": {
+  "dc2": "punish",
+  "d": null
+ },
+ "cs": "odour",
+ "regime": "eln8",
+ "probes": [
+  "dc2",
+  "d",
+  "da1"
+ ],
+ "us_path": "dan",
+ "eta": 5e-06,
+ "lam": 0.01,
+ "seed0": 4,
+ "n_train": 30,
+ "kc_hz": 50.0,
+ "audio_gain": 3.0,
+ "brain": "data/brain_gpu.npz",
+ "flywatch_gain": 1.0,
+ "song_sha256": {
+  "misery": "5d4a2d752aa71269130a8189bc5af9793bae3fcea57166eee96da40682ea1c10",
+  "skyhigh": "997f479e39478d3ec461e53fd9847b77cd5cfd2313b0b1a5f276d1457426bea2",
+  "mozart": "e9858acda62126330af470619579fd1cfdf94793a403a64f3abc5412baa38e8e"
+ },
+ "summary": {
+  "mean_frac": -0.019700463861227036,
+  "min_frac": -0.8910000324249268,
+  "n_at_floor": 185,
+  "sha": "d0030b6fe90ec645"
+ }
+}

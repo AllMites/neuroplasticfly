@@ -1,0 +1,19 @@
+{
+ "song_pairs": {
+  "misery": "punish",
+  "skyhigh": "reward"
+ },
+ "us_path": "dan",
+ "eta": 0.001,
+ "lam": 0.01,
+ "n_train": 3,
+ "kc_hz": 50.0,
+ "audio_gain": 3.0,
+ "brain": "data/brain_gpu.npz",
+ "summary": {
+  "mean_frac": -0.04554688185453415,
+  "min_frac": -0.8910000324249268,
+  "n_at_floor": 0,
+  "sha": "4a2fd86df4fa25a2"
+ }
+}

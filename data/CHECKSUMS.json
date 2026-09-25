@@ -1,0 +1,26 @@
+{
+ "built": "2026-09-23",
+ "files": {
+  "brain_gpu.npz": {
+   "n_edges": 2700429,
+   "n_groups": 8865,
+   "n_neurons": 139248,
+   "n_selectors": 132,
+   "sha256_content": "5c594f4a7f6ae2a3320cd4581e0837148cbc5db76bc58fece8a1a56050381454"
+  },
+  "neuron_meta.npz": {
+   "sha256_content": "cb363b69b5510f5859c0324db105e98887c4d4b5824861182a5e89aa3e792b30"
+  },
+  "nt_conf.npz": {
+   "sha256_content": "828c4abd74902cfd870b8cd7d54950840cd31fdb99b042c09c1c0ee6c9d56eb3"
+  },
+  "root_ids_sorted.npy": {
+   "sha256_content": "bba57527c45566f3fe342382362bccf90c4b95c4fc436403f629e3b634405bf6"
+  }
+ },
+ "sources": {
+  "annotations": "flyconnectome/flywire_annotations supplemental_files/Supplemental_file1_neuron_annotations.tsv",
+  "connections": "Zenodo 10676866 proofread_connections_783.feather (md5 f48f972d262323a102aed49af1396b8a)",
+  "loader": "flypoke.data.build_network(min_syn=5) @ 24814fe83224ca2d25c116c1107440b877b07762"
+ }
+}

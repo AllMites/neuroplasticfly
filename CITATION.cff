@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. If you use its results, please also cite the preprint under preferred-citation."
+title: "neuroplasticfly: dopamine-gated plasticity on a whole-brain FlyWire v783 LIF simulation"
+authors:
+  - family-names: Asis
+    given-names: Daniel
+    affiliation: "Independent Researcher"
+    orcid: "https://orcid.org/0009-0009-1456-5276"
+    email: "danielasis.research@gmail.com"
+repository-code: "https://github.com/AllMites/neuroplasticfly"
+license: MIT
+date-released: "2026-09-29"
+version: 0.1.0
+preferred-citation:
+  type: article
+  title: "Specific, cumulative and reversible odour learning in a whole-brain connectome model of Drosophila"
+  authors:
+    - family-names: Asis
+      given-names: Daniel
+      affiliation: "Independent Researcher"
+      orcid: "https://orcid.org/0009-0009-1456-5276"
+  journal: "bioRxiv"
+  year: 2026
+  # PLACEHOLDER (fill on 2026-09-29 once bioRxiv assigns it): replace 10.1101/XXXX.XX.XX.XXXXXX with the real DOI.
+  doi: "10.1101/XXXX.XX.XX.XXXXXX"

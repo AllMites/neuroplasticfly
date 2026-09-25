@@ -1,0 +1,30 @@
+{
+ "song_pairs": {
+  "misery": "punish",
+  "skyhigh": "reward"
+ },
+ "us_path": "dan",
+ "eta": 0.001,
+ "lam": 0.01,
+ "n_train": 30,
+ "kc_hz": 50.0,
+ "audio_gain": 3.0,
+ "flywatch_gain": {
+  "value": 1.0,
+  "observed": false,
+  "note": "NOT captured at run time for v1; this is the flywatch/sim.py default (os.environ.get('FLYWATCH_GAIN','1.0')), assumed, not measured. Effective CS gain = flywatch_gain * audio_gain. Later runs record the resolved value directly as a number."
+ },
+ "song_sha256": {
+  "misery": "5d4a2d752aa71269130a8189bc5af9793bae3fcea57166eee96da40682ea1c10",
+  "skyhigh": "997f479e39478d3ec461e53fd9847b77cd5cfd2313b0b1a5f276d1457426bea2",
+  "mozart": "e9858acda62126330af470619579fd1cfdf94793a403a64f3abc5412baa38e8e"
+ },
+ "brain": "data/brain_gpu.npz",
+ "summary": {
+  "mean_frac": -0.05435439944267273,
+  "min_frac": -0.8910000324249268,
+  "n_at_floor": 445,
+  "sha": "8009db04713be2ab"
+ },
+ "summary_note": "n_at_floor recomputed from dw.npy after the resting-floor fix; the original run wrote 0 because it tested w <= W_MIN*w0, which recovery makes unreachable. dw.npy unchanged (sha 8009db04713be2ab)."
+}

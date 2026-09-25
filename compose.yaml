@@ -1,0 +1,31 @@
+services:
+  sim:
+    build: .
+    volumes:
+      - flypoke-data:/data
+      - .:/app
+      - ../flypet:/flypet:ro
+    environment:
+      FLYPOKE_DATA: /data
+      MPLCONFIGDIR: /tmp/mpl
+      PYTHONPATH: /app:/flypet
+      OMP_NUM_THREADS: "1"
+  lichess:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - flypoke-data:/data
+      - .:/app
+      - ../flypet:/flypet:ro
+    environment:
+      FLYPOKE_DATA: /data
+      MPLCONFIGDIR: /tmp/mpl
+      PYTHONPATH: /app:/flypet
+      OMP_NUM_THREADS: "1"
+      LICHESS_TOKEN: "${LICHESS_TOKEN:-}"
+    command: ["python", "-u", "/app/lichess/run.py"]
+
+volumes:
+  flypoke-data:
+    external: true
+    name: flypet_flypoke-data

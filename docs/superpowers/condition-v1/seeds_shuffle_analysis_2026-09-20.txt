@@ -1,0 +1,104 @@
+
+== avoid_index shift (last probe - baseline), Hz ==
+learn     misery   n=5 mean  +5.855 sd  0.165  [+6.08 +5.89 +5.86 +5.84 +5.61]
+learn     mozart   n=5 mean  +5.662 sd  0.129  [+5.57 +5.49 +5.74 +5.71 +5.81]
+learn     skyhigh  n=5 mean  -4.911 sd  0.411  [-5.35 -5.22 -4.96 -4.69 -4.33]
+lesion    misery   n=5 mean  +0.108 sd  0.292  [+0.44 +0.24 +0.24 -0.08 -0.30]
+lesion    mozart   n=5 mean  +0.033 sd  0.259  [+0.43 -0.04 +0.15 -0.23 -0.13]
+lesion    skyhigh  n=5 mean  +0.018 sd  0.243  [-0.10 -0.35 +0.12 +0.22 +0.20]
+reversed  misery   n=1 mean  +0.123 sd  0.000  [+0.12]
+reversed  mozart   n=1 mean  -1.885 sd  0.000  [-1.89]
+reversed  skyhigh  n=1 mean  +3.538 sd  0.000  [+3.54]
+shuffle   misery   n=5 mean  +0.613 sd  0.481  [+1.45 +0.49 +0.54 +0.34 +0.24]
+shuffle   mozart   n=5 mean  +0.280 sd  0.468  [+1.03 +0.25 +0.08 +0.28 -0.24]
+shuffle   skyhigh  n=5 mean  -0.014 sd  0.347  [-0.45 -0.27 +0.24 +0.38 +0.02]
+
+== population DN readout, 474 DN types ==
+v1s0   learn     |dS| mean 0.586  n(|z|>3)  22 / 474
+v1s0   lesion    |dS| mean 0.277  n(|z|>3)  11 / 474
+v1s0   reversed  |dS| mean 0.655  n(|z|>3)  17 / 474
+v1s0   shuffle   |dS| mean 0.144  n(|z|>3)  10 / 474
+v1s1   learn     |dS| mean 0.546  n(|z|>3)  22 / 474
+v1s1   lesion    |dS| mean 0.201  n(|z|>3)  11 / 474
+v1s1   shuffle   |dS| mean 0.156  n(|z|>3)  10 / 474
+v1s2   learn     |dS| mean 0.372  n(|z|>3)  19 / 474
+v1s2   lesion    |dS| mean 0.398  n(|z|>3)   9 / 474
+v1s2   shuffle   |dS| mean 0.198  n(|z|>3)  11 / 474
+v1s3   learn     |dS| mean 0.428  n(|z|>3)  16 / 474
+v1s3   lesion    |dS| mean 0.398  n(|z|>3)  15 / 474
+v1s3   shuffle   |dS| mean 0.309  n(|z|>3)  10 / 474
+v1s4   learn     |dS| mean 0.429  n(|z|>3)  21 / 474
+v1s4   lesion    |dS| mean 0.388  n(|z|>3)  48 / 474
+v1s4   shuffle   |dS| mean 0.198  n(|z|>3)  39 / 474
+
+r(dS) between arms, same seed:
+  v1s0 learn vs reversed  r = -0.887
+  v1s0 learn vs lesion    r = -0.773
+  v1s0 learn vs shuffle   r = -0.245
+  v1s1 learn vs lesion    r = -0.700
+  v1s1 learn vs shuffle   r = +0.389
+  v1s2 learn vs lesion    r = -0.720
+  v1s2 learn vs shuffle   r = -0.217
+  v1s3 learn vs lesion    r = -0.780
+  v1s3 learn vs shuffle   r = -0.753
+  v1s4 learn vs lesion    r = -0.764
+  v1s4 learn vs shuffle   r = -0.484
+
+r(dS) learn vs learn across seeds:
+  v1s0 vs v1s1 r = +0.984
+  v1s0 vs v1s2 r = +0.904
+  v1s0 vs v1s3 r = +0.935
+  v1s0 vs v1s4 r = +0.924
+  v1s1 vs v1s2 r = +0.937
+  v1s1 vs v1s3 r = +0.967
+  v1s1 vs v1s4 r = +0.958
+  v1s2 vs v1s3 r = +0.975
+  v1s2 vs v1s4 r = +0.933
+  v1s3 vs v1s4 r = +0.972
+
+lesion-referenced effect E = dS(arm) - dS(lesion):
+  v1s0   learn     |E| mean 0.765  n(|E|>1Hz)  62
+  v1s0   reversed  |E| mean 0.418  n(|E|>1Hz)  48  r(E, E_learn) = -0.907
+  v1s0   shuffle   |E| mean 0.207  n(|E|>1Hz)  34  r(E, E_learn) = +0.948
+  v1s1   learn     |E| mean 0.659  n(|E|>1Hz)  59
+  v1s1   shuffle   |E| mean 0.205  n(|E|>1Hz)  34  r(E, E_learn) = +0.943
+  v1s2   learn     |E| mean 0.674  n(|E|>1Hz)  59
+  v1s2   shuffle   |E| mean 0.285  n(|E|>1Hz)  36  r(E, E_learn) = +0.975
+  v1s3   learn     |E| mean 0.725  n(|E|>1Hz)  62
+  v1s3   shuffle   |E| mean 0.139  n(|E|>1Hz)  25  r(E, E_learn) = +0.637
+  v1s4   learn     |E| mean 0.712  n(|E|>1Hz)  62
+  v1s4   shuffle   |E| mean 0.225  n(|E|>1Hz)  34  r(E, E_learn) = +0.941
+  E_learn v1s0 vs v1s1 r = +0.994
+  E_learn v1s0 vs v1s2 r = +0.989
+  E_learn v1s0 vs v1s3 r = +0.989
+  E_learn v1s0 vs v1s4 r = +0.978
+  E_learn v1s1 vs v1s2 r = +0.997
+  E_learn v1s1 vs v1s3 r = +0.995
+  E_learn v1s1 vs v1s4 r = +0.976
+  E_learn v1s2 vs v1s3 r = +0.997
+  E_learn v1s2 vs v1s4 r = +0.978
+  E_learn v1s3 vs v1s4 r = +0.988
+  DN types with |mean E| > 3 sd across seeds: 52 / 474
+  top-10 DN types by |mean E| (Hz, mean +- sd):
+    DNge053    -29.26 +- 1.38
+    DNbe007    -28.53 +- 1.33
+    DNge037    -18.13 +- 1.39
+    DNg100     -15.40 +- 2.18
+    DNg13      -13.80 +- 1.35
+    DNp31      -12.47 +- 0.77
+    DNa02      -12.00 +- 1.39
+    DNg111     -9.67 +- 1.13
+    DNg16      -9.33 +- 2.46
+    DNb05      -9.14 +- 1.57
+
+top-10 DN types by |mean dS| across seeds (Hz):
+  DNbe007    -17.27
+  DNge053    -15.06
+  DNge037    -10.73
+  DNg13      -9.13
+  DNa02      -8.73
+  DNg100     -8.40
+  DNp56      -6.80
+  DNp31      -6.53
+  DNg24      +6.28
+  DNb05      -5.99
