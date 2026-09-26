@@ -124,7 +124,7 @@ reproduce their output array for array.
 
 ## Cite
 
-Preprint: Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. bioRxiv. [BIORXIV LINK]
+Preprint: Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. bioRxiv. Submitted, under bioRxiv screening; link and DOI will be added here once assigned.
 
 Software: `CITATION.cff`. Code is MIT (`LICENSE`); figures CC-BY; the connectome is not mine to
 license (see *Data*).
