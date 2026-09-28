@@ -19,6 +19,9 @@ preferred-citation:
       given-names: Daniel
       affiliation: "Independent Researcher"
       orcid: "https://orcid.org/0009-0009-1456-5276"
-  journal: "bioRxiv"
+  publisher:
+    name: "Zenodo"
+  doi: "10.5281/zenodo.23017032"
+  url: "https://doi.org/10.5281/zenodo.23017032"
   year: 2026
-  notes: "Submitted, under bioRxiv screening as of 2026-09-26. DOI field to be added once bioRxiv assigns it."
+  notes: "Preprint."
