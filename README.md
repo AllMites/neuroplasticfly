@@ -158,7 +158,7 @@ reproduce their output array for array.
 
 ## Cite
 
-Preprint: Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. Zenodo. [https://doi.org/10.5281/zenodo.23017032](https://doi.org/10.5281/zenodo.23017032)
+Preprint: Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. Zenodo. [https://doi.org/10.5281/zenodo.23017031](https://doi.org/10.5281/zenodo.23017031)
 
 Software: `CITATION.cff`. Code is MIT (`LICENSE`); figures CC-BY; the connectome is not mine to
 license (see *Data*).
