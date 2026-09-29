@@ -55,6 +55,40 @@ The unconditioned stimulus is therefore injected at PPL1 (punishment) rather tha
 recruited through sugar. That is a disclosed shortcut, and the reason for it is measured,
 not assumed.
 
+## Christie et al. (2026) protocol-matched check
+
+The reward-path result above uses our default synaptic weight (W_SYN 0.275 mV) and our
+5-synapse floor. Christie et al. report PAM recruitment at W 0.37-0.39 mV, driving sugar
+GRNs together with gustatory interneurons (GINs) over 30 trials of 1000 ms. This check
+reruns their Fig 6A protocol on this engine: the 67 left sugar GRNs plus their 14 left GINs
+(Data S4) at the same Poisson rate, rates 10-200 Hz in 10 Hz steps, W 0.37, 0.38, 0.382,
+0.386, 0.39 and 0.275 as a control, 30 trials per condition, Fox (CB0525) intact and
+silenced, at floor 1 (every proofread synapse, as in Shiu et al. 2024) and floor 5.
+A PAM-DAN counts as responding if it spikes at all over the 30 trials, which is their
+criterion. The design and the labels were fixed before the run:
+`docs/superpowers/reward-path/christie_match/PREREGISTER_christie_match.md`.
+
+Result: at W 0.37-0.39 the most PAM-DANs responding in any condition was 17 of 307 at
+floor 1 and 14 of 307 at floor 5. Christie et al. report about 190. Silencing Fox does not
+lower the count (at floor 1 it reaches 16 with Fox silenced), and GINs add nothing over
+GRNs alone. The W 0.275 control recruits 0 at both floors. The registered label at floor 1
+is PARTIAL, because the maximum of 17 sits just above the registered cut of 16; the
+independent evaluation judged that a threshold artefact, since the same small cluster of
+PAM cells responds with or without Fox. Floor 5 is NOT REPRODUCED. The GIN firing rate and
+Christie's synapse floor are not stated in their paper, so this is a match to the protocol
+as published, not to their code. Full evaluation and the label output:
+`docs/superpowers/reward-path/christie_match/EVALUATION.md` and `analysis.txt`.
+
+To run it, build the floor-1 brain after `scripts/build_data.py`, then check the pipeline
+against the golden before anything longer:
+
+```
+python scripts/build_floor_brains.py          # data/brain_gpu_min1.npz, about 10 s
+python learn/christie_match.py --mode golden  # must print [7, 11, 7, 14, 0] ... PASS
+python learn/christie_match_run.py            # the full batch, about 130 GPU-min
+python learn/analyze_christie_match.py        # labels, from results/christie_match/parts
+```
+
 ## What this is not
 
 These constrain every claim made about this repository.
@@ -97,7 +131,7 @@ mtimes, so the same brain hashes differently on every rebuild.
 
 ```
 reproduce.py          clone -> rung A, one command
-scripts/              fetch_data, build_data (flypoke loader), checksum_data, plot_rung_a
+scripts/              fetch_data, build_data (flypoke loader), build_floor_brains, checksum_data, plot_rung_a
 gpu_sim.py            the engine: one CSR tensor, LIF step, run_batch
 learn/                conditioning, plasticity rule, CS gate, seed analysis
 regime/               ELN_NEGATE / PN_KC_GAIN regimes, nt_conf, silence tests

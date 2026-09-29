@@ -1,0 +1,3 @@
+floor 1: PARTIAL | best {'w': 0.39, 'r': 200.0, 'PAM_resp': 17, 'fox_sil': 12, 'global_frac': 0.0} | Q-GINs {'max_grn_gin_w039': 17, 'max_grn_only_w039': 17} | Q-control {'max_PAM_resp_w0275': 0, 'fail': False} | Q-trials {'n_repro_cells_resp5_lt_resp30': 0, 'n_repro_cells': 0}
+floor 5: NOT REPRODUCED | best {'w': 0.386, 'r': 10.0, 'PAM_resp': 14, 'fox_sil': 14, 'global_frac': 1.0} | Q-GINs {'max_grn_gin_w039': 11, 'max_grn_only_w039': 13} | Q-control {'max_PAM_resp_w0275': 0, 'fail': False} | Q-trials {'n_repro_cells_resp5_lt_resp30': 0, 'n_repro_cells': 0}
+golden in run: {'got': [7, 11, 7, 14, 0], 'pass': True}
