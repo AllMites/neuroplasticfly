@@ -2,7 +2,9 @@
 
   python reproduce_paper1.py --verify    hashes: shipped files vs PROVENANCE.json, run meta rows, EVALUATION.md lists,
                                          reference.json sources
-  python reproduce_paper1.py --rescore   re-run the preregistered labelling of the reward fit, the learning tests and the
+  python reproduce_paper1.py --rescore   (needs data/ built: python reproduce.py stops after the build, or
+                                         scripts/fetch_data.py + scripts/build_data.py; no GPU)
+                                         re-run the preregistered labelling of the reward fit, the learning tests and the
                                          spiking relearning reference on the shipped logs (in a temporary copy) and
                                          compare every label and number with the shipped result.json files
 
@@ -117,6 +119,11 @@ def same(a, b, path="", out=None, tol=1e-9):
 
 
 def rescore():
+    need = [p for p in ("data/neuron_meta.npz", "data/brain_gpu.npz") if not os.path.isfile(os.path.join(HERE, p))]
+    if need:
+        check(False, "rescore needs the built connectome (%s missing): run scripts/fetch_data.py and "
+                     "scripts/build_data.py first (README, Data)" % ", ".join(need))
+        return
     from rate import chunk2 as C2
     from rate import chunk1_fit as F1
     tmp = tempfile.mkdtemp(prefix="np_rescore_")

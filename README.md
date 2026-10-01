@@ -111,11 +111,12 @@ Everything below ships in this release.
 
 ```
 python reproduce_paper1.py --verify     # hashes: shipped files, run meta rows, evaluation reports (seconds, CPU)
-python reproduce_paper1.py --rescore    # preregistered labelling re-run on the shipped logs (about a minute, CPU)
+python reproduce_paper1.py --rescore    # preregistered labelling re-run on the shipped logs (about a minute, CPU;
+                                        # needs data/ built: scripts/fetch_data.py + scripts/build_data.py)
 python paper1/figs/make_fig3.py         # likewise make_fig1-5.py, paper1/tables/make_tables.py
 ```
 
-Both `reproduce_paper1.py` modes ran ALL PASS on this release. `--rescore` reproduces every label and number of the
+Both `reproduce_paper1.py` modes ran ALL PASS on this release, on a Windows checkout and on a checkout with LF line endings. `--rescore` reproduces every label and number of the
 reward fit, the 24 learning-test runs and the 10 spiking-reference runs from the shipped logs. The original analyzers
 refuse to run unless the repository is at the commit the runs were made at, which lives in the private research
 repository; `--rescore` supplies the recorded commit and code hashes after `--verify` has checked the bytes.
