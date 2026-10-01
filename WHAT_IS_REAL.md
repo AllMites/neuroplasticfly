@@ -14,11 +14,24 @@ by a small trained layer bolted on top of it.*
 
 Measured, not written by me.
 
-- **The connectome.** FlyWire v783, 139,248 proofread neurons, signed synapse
+- **The connectome.** FlyWire v783, 139,248 annotated neurons that carry edges in
+  v783, signed synapse
   counts aggregated per neuron pair with a 5-synapse floor. Annotations from
-  Schlegel et al. 2024; connections from Dorkenwald et al. 2024 (Zenodo
-  10676866). Nothing in the matrix is edited, pruned, or tuned. No gradient ever
+  Schlegel et al. 2024 (flywire_annotations **v3.1.0**, commit 8587524c);
+  connections from Dorkenwald et al. 2024 (Zenodo
+  10676866, md5 f48f972d262323a102aed49af1396b8a). Nothing in the matrix is edited, pruned, or tuned. No gradient ever
   reaches it.
+  Recertified 2026-10-01: all three Zenodo files hash-match the certified release
+  byte-for-byte, and 2,700,429 reproduces from them alone (floor-5 pairs are
+  2,700,513 raw; the index rule drops 84 pairs touching the 14 neurons below).
+  **139,248 is our index, not FlyWire's proofread count — the certified
+  `proofread_root_ids_783.npy` holds 139,255.** 14 of those ids appear in the
+  connectivity file and are outside our index because the annotation release has
+  no row for them (one, 720575940633242449, has 51 partners at floor 5); 7
+  annotation rows have no edges in v783 at all. Both gaps are a property of the
+  published files, not of the build. See
+  `Projects/Fly-Connectome/connectome-recertification-2026-10-01.md`.
+
 - **The dynamics.** Leaky integrate-and-fire with the constants from Shiu et al.
   2024 (*Nature* 634:210-219): `w_syn` 0.275 mV, `v_th` -45 mV, `tau_m` 20 ms,
   `tau_syn` 5 ms, `t_refr` 2.2 ms, 1.8 ms synaptic delay, 0.1 ms steps. GABA and

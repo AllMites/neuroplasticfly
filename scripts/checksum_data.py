@@ -26,7 +26,7 @@ FILES = ["brain_gpu.npz", "neuron_meta.npz", "nt_conf.npz", "root_ids_sorted.npy
 
 SOURCES = {
     "connections": "Zenodo 10676866 proofread_connections_783.feather (md5 f48f972d262323a102aed49af1396b8a)",
-    "annotations": "flyconnectome/flywire_annotations supplemental_files/Supplemental_file1_neuron_annotations.tsv",
+    "annotations": "flyconnectome/flywire_annotations v3.1.0 (commit 8587524c1748ce5ef2080822a2fc890fc03bf597) supplemental_files/Supplemental_file1_neuron_annotations.tsv (sha256 9a4f8b2f843196074431ebd7cd883536afa1be86c8a4ce90970441e8be81d1be)",
     "loader": "flypoke.data.build_network(min_syn=5) @ 24814fe83224ca2d25c116c1107440b877b07762",
 }
 
