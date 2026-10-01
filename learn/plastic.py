@@ -1,6 +1,16 @@
-"""The only synapses that change: KC->MBON, dopamine-gated depression.
+"""The only synapses that change: KC->MBON, dopamine-gated.
 
-Rule (Bennett, Philippides, Nowotny 2021; Hige et al. 2015), once per trial:
+update() -- depression only (Hige et al. 2015). This is Bennett, Philippides & Nowotny
+2021's VALENCE-SPECIFIC variant, which its own authors show "exhibits limited learning":
+weights cannot go below zero, so every cue's prediction converges and choices go random;
+their fix is a constant potentiation, which is what `lam` is. We measured the same
+saturation (trial ~20). Kept byte-identical so every past result reproduces.
+
+update_timed() -- bidirectional by timing (Handler et al. 2019, Cell 178:60): odour
+before/with dopamine depresses, dopamine before odour potentiates, up to W_MAX*w0.
+See PREREGISTER_bidir.md.
+
+update() rule, once per trial:
     e[edge]  = KC_rate[pre]                          eligibility (Hz)
     d[edge]  = DAN_rate pooled by the valence that opposes the MBON's valence
                (punish -> approach MBONs, reward -> avoid MBONs)          (Hz)
@@ -26,6 +36,8 @@ TABLE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "compartments.j
 ETA = 1e-3          # per Hz*Hz per trial
 LAM = 0.01          # recovery fraction per trial
 W_MIN = 0.1         # floor as fraction of baseline
+W_MAX = 1.8         # AUTHORED ceiling for update_timed, fraction of baseline. Order of
+                    # magnitude only: Yamada et al. 2024 (J Physiol) KC+cGMP LTP +77.9%.
 OPPOSES = {"approach": "punish", "avoid": "reward"}
 
 
@@ -58,6 +70,9 @@ class Plastic:
         # min_frac sat at -(1-W_MIN)*(1-lam). update() rewrites this with the lam it used;
         # the default covers state loaded from disk (lam is not saved).
         self.floor = (W_MIN + LAM * (1.0 - W_MIN)) * self.w0
+        # Same trap on the way up: a clipped edge rests at W_MAX*w0 - lam*(W_MAX-1)*w0.
+        self.ceiling = (W_MAX - LAM * (W_MAX - 1.0)) * self.w0
+        self.e_prev = self.d_prev = None   # update_timed's one-tick lag; never saved
 
     # ------------------------------------------------------------ construction
     @classmethod
@@ -108,10 +123,8 @@ class Plastic:
     def w(self):
         return self.w0 + self.dw
 
-    def update(self, rates, eta=ETA, lam=LAM, lesion="none", compartment=False):
-        """rates: float[n_neurons] Hz for the trial just run. Returns dw applied this call."""
-        rates = np.asarray(rates, np.float32)
-        e = rates[self.kc_of_edge]
+    def _dopamine(self, rates, lesion, compartment):
+        """Per-edge DAN rate, routed by the valence that OPPOSES the MBON's."""
         d = np.zeros(self.n_edges, np.float32)
         for mv, dv in OPPOSES.items():
             if lesion in (dv, "all"):
@@ -128,10 +141,43 @@ class Plastic:
                     d[m] = rates[dans].mean() if len(dans) else 0.0
             else:
                 d[sel] = rates[self.dan_idx[dv]].mean()
+        return d
+
+    def update(self, rates, eta=ETA, lam=LAM, lesion="none", compartment=False):
+        """rates: float[n_neurons] Hz for the trial just run. Returns dw applied this call."""
+        rates = np.asarray(rates, np.float32)
+        e = rates[self.kc_of_edge]
+        d = self._dopamine(rates, lesion, compartment)
         step = -eta * e * d * self.w0
         w_new = np.clip(self.w() + step, W_MIN * self.w0, self.w0)
         w_new = w_new + lam * (self.w0 - w_new)
         self.floor = (W_MIN + lam * (1.0 - W_MIN)) * self.w0   # resting floor for this lam
+        applied = w_new - self.w()
+        self.dw = (w_new - self.w0).astype(np.float32)
+        return applied
+
+    def reset_lag(self):
+        self.e_prev = self.d_prev = None
+
+    def update_timed(self, rates, eta, lam=LAM, lesion="none", compartment=False):
+        """One closed-loop tick. dep = eta*(e[t-1]+e[t])*d[t]*w0 (odour before or with
+        dopamine), pot = eta*d[t-1]*e[t]*w0 (dopamine before odour). Call on EVERY tick:
+        the lag is the previous call. First call after reset_lag() has no lag term."""
+        rates = np.asarray(rates, np.float32)
+        e = rates[self.kc_of_edge]
+        d = self._dopamine(rates, lesion, compartment)
+        e_prev = np.zeros_like(e) if self.e_prev is None else self.e_prev
+        d_prev = np.zeros_like(d) if self.d_prev is None else self.d_prev
+        step = eta * (d_prev * e - (e_prev + e) * d) * self.w0
+        w_new = np.clip(self.w() + step, W_MIN * self.w0, W_MAX * self.w0)
+        w_new = w_new + lam * (self.w0 - w_new)
+        # Resting bounds follow the recovery step, which the protocol applies on US ticks
+        # only (lam=0 elsewhere). Rewriting them on a lam=0 tick would put the resting
+        # ceiling at exactly W_MAX*w0 and n_at_ceiling would read 0 forever.
+        if lam > 0:
+            self.floor = (W_MIN + lam * (1.0 - W_MIN)) * self.w0
+            self.ceiling = (W_MAX - lam * (W_MAX - 1.0)) * self.w0
+        self.e_prev, self.d_prev = e, d
         applied = w_new - self.w()
         self.dw = (w_new - self.w0).astype(np.float32)
         return applied
@@ -181,4 +227,6 @@ class Plastic:
     def summary(self):
         f = self.dw / self.w0
         return {"mean_frac": float(f.mean()), "min_frac": float(f.min()),
-                "n_at_floor": int((self.w() <= self.floor + 1e-5 * self.w0).sum()), "sha": self.sha()}
+                "n_at_floor": int((self.w() <= self.floor + 1e-5 * self.w0).sum()),
+                "n_at_ceiling": int((self.w() >= self.ceiling - 1e-5 * self.w0).sum()),
+                "max_frac": float(f.max()), "sha": self.sha()}

@@ -1,0 +1,4 @@
+a  per-odour r min -0.000 median 0.856 max 0.949; bar 0.759; C 0.949
+b  KC frac median rate 0.0564 vs spiking 0.0487 (n=25)
+c  DM4 after-offset: rate 741; spiking replicates [648, 684, 699, 640, 0] (max 699)
+   above bar: 21 of 25; lowest: [(np.float64(-0.0), 'ORN_DA3'), (np.float64(0.428), 'ORN_VC4'), (np.float64(0.466), 'ORN_DL5')]

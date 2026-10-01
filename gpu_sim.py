@@ -82,6 +82,20 @@ W_SYN = 0.275       # mV per synapse
 # biological form of graded APL and a zero-delay variant kept for comparison.
 # See docs/superpowers/specs/2026-09-19-regime-stability-design.md.
 TAU_A = 100.0       # ms, adaptation decay
+# AUTHORED, not Shiu (PREREGISTER_slow.md). A slow excitatory synaptic channel `h`:
+# SLOW_FRAC of every EXCITATORY weight whose postsynaptic cell_type starts with one of
+# SLOW_TYPES is delivered into h instead of g. h decays at TAU_SLOW and, unlike g, is NOT
+# reset when its neuron spikes -- the Shiu port zeroes g on every spike, so a slow channel
+# that reset too would be erased by the very activity it is meant to sustain.
+# CHARGE-MATCHED: the slow share is scaled by TAU_SYN / TAU_SLOW, so one spike delivers
+# the same total input with the channel on or off and only its time course changes.
+# Without that, SLOW_FRAC = 0.5 at 100 ms would inject ~10x more net excitation and any
+# persistence found would just be "more drive". Phenomenological: fly excitation is
+# mostly cholinergic, so this is "NMDA-like", never "NMDA". Off by default (0.0); the
+# default path is bit-identical to before it existed (regime/test_slow.py).
+TAU_SLOW = 100.0    # ms
+SLOW_FRAC = 0.0
+SLOW_TYPES = ()     # cell_type prefixes, e.g. ("EPG", "PEN", "PEG")
 SFA_B_INC = 0.0     # mV-equivalent added to the adaptation current per spike
 APL_GRADED = False  # replace APL's spiking output with a graded rate
 APL_SCALE = 7.0     # mV above rest at which graded APL output saturates
@@ -142,6 +156,11 @@ KC_V_TH_DELTA = 0.0 # AUTHORED. mV added to the spike threshold of Kenyon cells 
                     # every neuron in the brain the same V_TH, so a KC-specific offset
                     # is arguably more faithful - but it is AUTHORED either way and is
                     # disclosed alongside the fly-hash graft and the VNC stand-in.
+TYPE_W_SCALE = {}   # AUTHORED. {cell_type: multiplier} on every OUTGOING device weight of
+                    # that type ({} = off, default path untouched). -1.0 flips a sign,
+                    # 0.0 removes the type's chemical output. Exists for transmitters
+                    # whose sign is receptor-dependent (glutamate: GluCl vs iGluR), first
+                    # ExR6 (PREREGISTER_exr6.md). Baked at construction like PN_KC_GAIN.
 PN_KC_GAIN = 1.0    # AUTHORED. Multiplier on ALPN -> Kenyon-cell synaptic weights.
                     # 1.0 = off. The companion to KC_V_TH_DELTA and the one to prefer:
                     # the threshold lever only reaches the 5-10% band at delta -7.0,
@@ -403,9 +422,22 @@ def _numpy_poisson(idx_list, prob_list, seeds, n_steps, S, device):
     return torch.from_numpy(out).to(device)
 
 
+def bias_mv_for_hz(hz):
+    """run_batch `bias` (mV) that makes an ISOLATED cell (no synaptic input) fire at
+    `hz`: inverts the LIF rate 1000 / (T_REFR + TAU_M ln(I / (I - (V_TH - V_REST)))).
+    For putting a drive's Hz and a bias on one scale; in the network the realised rate
+    also carries the cell's synaptic input, which is the point of `bias`. Continuous-
+    time, so off by up to one DT step per interval."""
+    hz = np.asarray(hz, dtype=np.float64)
+    isi = 1000.0 / hz - T_REFR
+    assert np.all(isi > 0), "rate above the refractory ceiling %.0f Hz" % (1000.0 / T_REFR)
+    return (V_TH - V_REST) / (1.0 - np.exp(-isi / TAU_M))
+
+
 # ---------------------------------------------------------------- the integrator
 def _body(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain, decay_s,
-          decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8):
+          decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8, h=None, decay_h=None,
+          bias=None):
     """Steps 2-7 of run_trial over the whole [N, B] state, in one pass.
 
     `prob` is the per-step Poisson probability (rate * dt / 1000) and doubles as
@@ -417,9 +449,27 @@ def _body(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain, decay_s,
     and `(g - a)` is `g`, so the arithmetic is unchanged from the Shiu port.
     `no_spike` is the AUTHORED mask for neurons whose output is delivered by
     some other mechanism (graded APL); it only gates threshold crossing.
+
+    `h` is the AUTHORED slow channel (SLOW_FRAC). None on the default path, which is
+    then exactly the arithmetic it always was; given, it adds to the drive, decays at
+    decay_h, is NOT reset on spike, and is returned as a sixth value.
+
+    `bias` is the AUTHORED additive input (run_batch's `bias`): mV, [N, 1] or [N, B],
+    summed into the drive next to g, so synaptic input is kept (unlike a Poisson
+    stimulus, whose `prob > 0` masks threshold crossing). None = the branches below,
+    untouched.
     """
     active = r == zero_i8
-    vn = torch.where(active, v_rest + (v - v_rest) * decay_m + (g - a) * gain, v)
+    if bias is not None:
+        drive = (g - a if h is None else g + h - a) + bias
+        vn = torch.where(active, v_rest + (v - v_rest) * decay_m + drive * gain, v)
+        if h is not None:
+            h = h * decay_h
+    elif h is None:
+        vn = torch.where(active, v_rest + (v - v_rest) * decay_m + (g - a) * gain, v)
+    else:
+        vn = torch.where(active, v_rest + (v - v_rest) * decay_m + (g + h - a) * gain, v)
+        h = h * decay_h
     g = g * decay_s
     a = a * decay_a
     fired = (vn > v_th) & active & (prob <= 0.0) & ~no_spike
@@ -428,23 +478,28 @@ def _body(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain, decay_s,
     g = torch.where(spk, torch.zeros((), dtype=g.dtype, device=g.device), g)
     a = torch.where(spk, a + b_inc, a)
     r = torch.where(spk, refr_m1, torch.clamp(r - 1, min=0))
-    return v, g, r, a, spk
+    if h is None:
+        return v, g, r, a, spk
+    return v, g, r, a, spk, h
 
 
 def _step_counter(v, g, r, a, prob, seed32, step_const, neuron, no_spike, v_rest,
                   decay_m, gain, decay_s, decay_a, b_inc, v_th, v_reset, refr_m1,
-                  zero_i8):
+                  zero_i8, h=None, decay_h=None, bias=None):
     """Throughput path: the Poisson draw is computed in-register, not stored."""
     poisson = _uniform(seed32, step_const, neuron) < prob
     return _body(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain,
-                 decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8)
+                 decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8, h, decay_h,
+                 bias)
 
 
 def _step_mask(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain,
-               decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8):
+               decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8, h=None,
+               decay_h=None, bias=None):
     """Verification path: the Poisson mask came from numpy's PCG64 stream."""
     return _body(v, g, r, a, prob, poisson, no_spike, v_rest, decay_m, gain,
-                 decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8)
+                 decay_s, decay_a, b_inc, v_th, v_reset, refr_m1, zero_i8, h, decay_h,
+                 bias)
 
 
 _compiled = {}
@@ -672,6 +727,33 @@ class GpuSim:
         # refuse rather than quietly mislead.
         self.pn_kc_gain = PN_KC_GAIN
 
+        # AUTHORED (TYPE_W_SCALE). Same placement rule as the two blocks above: below the
+        # normalisation block, which reassigns self.data. Rows are PRESYNAPTIC, so a row
+        # range is "everything this neuron sends". Plastic KC->MBON rows are untouched
+        # unless someone scales Kenyon cells, which is refused.
+        self.type_w_scale = dict(TYPE_W_SCALE)
+        if TYPE_W_SCALE:
+            ct_all = meta["cell_type"].astype(str)
+            for t, k in TYPE_W_SCALE.items():
+                assert t not in ("KC", "Kenyon_Cell") and not t.startswith("KC"),                     "TYPE_W_SCALE on Kenyon cells would fight Plastic.push"
+                rows = np.flatnonzero(ct_all == t)
+                assert rows.size, "TYPE_W_SCALE: no neuron of cell_type %r" % t
+                sel = np.concatenate([np.arange(ip[i], ip[i + 1]) for i in rows]).astype(np.int64)
+                self.data[torch.as_tensor(sel, device=self.device)] *= float(k)
+
+        # AUTHORED (SLOW_FRAC). Which posts take the slow share. Baked at construction
+        # like PN_KC_GAIN, and run_batch refuses a changed config for the same reason.
+        self.slow_cfg = None
+        if SLOW_FRAC > 0.0:
+            assert SLOW_TYPES, "SLOW_FRAC > 0 with no SLOW_TYPES selects nothing"
+            ct = meta["cell_type"].astype(str)
+            sel = np.any([np.char.startswith(ct, p) for p in SLOW_TYPES], axis=0)
+            assert sel.any(), "SLOW_TYPES %r match no neuron" % (SLOW_TYPES,)
+            assert not sel[self.apl_idx.cpu().numpy()].any(), \
+                "APL in SLOW_TYPES; graded APL has its own delivery path"
+            self.slow_post = torch.as_tensor(sel, device=self.device)
+            self.slow_cfg = (float(SLOW_FRAC), float(TAU_SLOW), tuple(SLOW_TYPES))
+
         # AUTHORED (GAP_COUPLE). Electrical delivery cache for the 44 known eLNs'
         # edges onto ALPNs. Coefficients derive from synapse COUNTS in the exported
         # matrix, so they are independent of W_SYN, normalisation and ELN_NEGATE;
@@ -726,7 +808,7 @@ class GpuSim:
             self.gap_idx = torch.cat([self.gap_post, self.gap_pre])
 
     # ------------------------------------------------------------ scatter
-    def _deliver(self, g, pre, bcol, B):
+    def _deliver(self, g, pre, bcol, B, h=None):
         """g[post, b] += sum over spiking pre of W[pre, post].
 
         Two presynaptic spikes can land on the same postsynaptic neuron in the
@@ -754,14 +836,29 @@ class GpuSim:
         post = self.indices[offs]
         w = self.data[offs]
         bb = torch.repeat_interleave(bcol, cnt, output_size=total)
-        if self.deterministic:
-            torch.use_deterministic_algorithms(True)
-            try:
+        if h is None:
+            if self.deterministic:
+                torch.use_deterministic_algorithms(True)
+                try:
+                    g.view(-1).index_add_(0, post * B + bb, w)
+                finally:
+                    torch.use_deterministic_algorithms(False)
+            else:
                 g.view(-1).index_add_(0, post * B + bb, w)
-            finally:
-                torch.use_deterministic_algorithms(False)
-        else:
-            g.view(-1).index_add_(0, post * B + bb, w)
+            return
+        # AUTHORED (SLOW_FRAC): excitatory edges onto slow posts split; inhibition stays
+        # fast. The slow share is charge-matched by TAU_SYN / TAU_SLOW.
+        ws = torch.where(self.slow_post[post] & (w > 0), w * np.float32(self.slow_cfg[0]),
+                         torch.zeros((), dtype=w.dtype, device=w.device))
+        w = w - ws
+        ws = ws * np.float32(TAU_SYN / self.slow_cfg[1])
+        flat = post * B + bb
+        torch.use_deterministic_algorithms(bool(self.deterministic))
+        try:
+            g.view(-1).index_add_(0, flat, w)
+            h.view(-1).index_add_(0, flat, ws)
+        finally:
+            torch.use_deterministic_algorithms(False)
 
     # ------------------------------------------------------------ plasticity
     def set_plastic(self, offsets, values):
@@ -918,7 +1015,7 @@ class GpuSim:
 
     # ------------------------------------------------------------ main loop
     def run_batch(self, drives, seeds, t_run=300.0, rng="counter", progress=None,
-                  state=None, return_state=False, silence=None):
+                  state=None, return_state=False, silence=None, bias=None):
         """drives: list of B (stim_idx, stim_prob) pairs -> counts int32 [B, N].
 
         Returns spike COUNTS, not rates, so the caller can divide exactly the way
@@ -947,6 +1044,20 @@ class GpuSim:
         in an optogenetic/genetic silencing experiment. Must not overlap the
         Poisson-driven set: `no_spike` masks `fired`, not `spk = fired |
         poisson`, so a stimulated-and-silenced neuron would still spike.
+
+        `bias`: AUTHORED additive input (2026-09-23, docs/superpowers/cx_bridge/
+        additive_bias_2026-09-23.md). A drive, in the `drives` sense, REPLACES a
+        neuron's output with a Poisson train and discards its synaptic input
+        (`prob > 0` masks threshold crossing). `bias` ADDS to the drive term next to
+        g instead, so the neuron keeps integrating its synaptic input. Units: mV of
+        steady-state depolarisation (the same units as g; a constant bias I alone
+        settles v at V_REST + I; threshold is 7 mV above rest). bias_mv_for_hz()
+        converts a drive's Hz into the bias giving that rate in an isolated cell.
+        Either a list of B (idx, mV) pairs, one per drive (duplicates sum), or a
+        dense float array/tensor of shape (N,) (every position) or (N, B). Constant
+        within a call; vary it per window by chaining calls with `state`. None = off,
+        and the off path is bit-identical to before (regime/test_additive_bias.py).
+        Must not overlap the Poisson-driven set, where it would do nothing.
         """
         dev = self.device
         N, B = self.net.n, len(drives)
@@ -964,6 +1075,9 @@ class GpuSim:
                 "regenerates its draws from (seeds, n_steps) with no step offset, so "
                 "every resumed tick would replay the same Poisson stream" % rng)
             step0 = state["step0"]
+            assert state.get("slow") == self.slow_cfg, (
+                "resuming a state built under slow config %r into a sim with %r"
+                % (state.get("slow"), self.slow_cfg))
         delay_steps = max(1, int(round(DELAY / DT)))
         refr_steps = int(round(T_REFR / DT))
         decay_m = float(np.float32(np.exp(-DT / TAU_M)))
@@ -988,6 +1102,29 @@ class GpuSim:
                                      "is_stim" % b)
                 prob_np[ii, b] = pp
         prob = torch.from_numpy(prob_np).to(dev)
+
+        bx = {}                    # kernel kwargs; empty on the default path
+        if bias is not None:
+            if torch.is_tensor(bias) or isinstance(bias, np.ndarray):
+                bias_t = torch.as_tensor(bias, dtype=torch.float32, device=dev)
+                if bias_t.dim() == 1:
+                    bias_t = bias_t.view(-1, 1)
+                assert tuple(bias_t.shape) in ((N, 1), (N, B)), \
+                    "dense bias must be (N,) or (N, B); got %r" % (tuple(bias_t.shape),)
+            else:
+                assert len(bias) == B, "bias: %d (idx, mV) pairs for %d drives" % (
+                    len(bias), B)
+                bias_np = np.zeros((N, B), dtype=np.float32)
+                for b, (ii, mv) in enumerate(bias):
+                    ii = np.asarray(ii, dtype=np.int64)
+                    np.add.at(bias_np[:, b], ii,
+                              np.broadcast_to(np.asarray(mv, np.float32), ii.shape))
+                bias_t = torch.from_numpy(bias_np).to(dev)
+            assert bool(torch.isfinite(bias_t).all()), "bias has a non-finite entry"
+            assert not bool(((bias_t != 0) & (prob > 0)).any()), \
+                "bias on a Poisson-stimulated neuron does nothing: prob > 0 masks " \
+                "threshold crossing"
+            bx["bias"] = bias_t
 
         seeds = np.asarray(seeds, dtype=np.int64)
         seed32 = torch.from_numpy(
@@ -1023,6 +1160,11 @@ class GpuSim:
         else:
             v, g, r, a = (state["v"].clone(), state["g"].clone(),
                           state["r"].clone(), state["a"].clone())
+        h = decay_h = None
+        if self.slow_cfg is not None:
+            h = (torch.zeros((N, B), dtype=torch.float32, device=dev) if state is None
+                 else state["h"].clone())
+            decay_h = float(np.float32(np.exp(-DT / self.slow_cfg[1])))
         no_spike = torch.zeros((N, 1), dtype=torch.bool, device=dev)
         if silence is not None and len(silence):
             sil = (silence.to(device=dev, dtype=torch.int64)
@@ -1061,6 +1203,14 @@ class GpuSim:
             "the weights at construction, unlike KC_V_TH_DELTA which is read here every "
             "call, so changing it on an existing sim does nothing. Build a new GpuSim."
             % (PN_KC_GAIN, self.pn_kc_gain))
+        assert self.type_w_scale == TYPE_W_SCALE, (
+            "TYPE_W_SCALE is %r now but this GpuSim was built with %r; it is baked into "
+            "the weights. Build a new GpuSim." % (TYPE_W_SCALE, self.type_w_scale))
+        cur_slow = ((float(SLOW_FRAC), float(TAU_SLOW), tuple(SLOW_TYPES))
+                    if SLOW_FRAC > 0.0 else None)
+        assert cur_slow == self.slow_cfg, (
+            "slow config is %r now but this GpuSim was built with %r. Build a new GpuSim."
+            % (cur_slow, self.slow_cfg))
         v_th_t = V_TH
         if KC_V_TH_DELTA != 0.0:
             v_th_t = torch.full((N, 1), V_TH, dtype=torch.float32, device=dev)
@@ -1094,7 +1244,7 @@ class GpuSim:
         for step in range(n_steps):
             pre, bcol = pending.popleft()
             if pre.numel():
-                self._deliver(g, pre, bcol, B)
+                self._deliver(g, pre, bcol, B, h)
             if APL_GRADED:
                 act = self._apl_activation(v[self.apl_idx])
                 if apl_pending is not None:
@@ -1104,22 +1254,34 @@ class GpuSim:
             if self.gap_k.numel():
                 self._deliver_gap(v, r)
 
-            if rng == "counter":
+            if rng == "counter" and h is not None:
+                v, g, r, a, spk, h = step_fn(v, g, r, a, prob, seed32,
+                                             step_consts[step], neuron, no_spike,
+                                             V_REST, decay_m, gain, decay_s,
+                                             decay_a, SFA_B_INC, v_th_t, v_reset_t,
+                                             refr_m1, zero_i8, h, decay_h, **bx)
+            elif rng == "counter":
                 v, g, r, a, spk = step_fn(v, g, r, a, prob, seed32,
                                           step_consts[step], neuron, no_spike,
                                           V_REST, decay_m, gain, decay_s,
                                           decay_a, SFA_B_INC, v_th_t, v_reset_t,
-                                          refr_m1, zero_i8)
+                                          refr_m1, zero_i8, **bx)
             else:
                 poisson_buf.zero_()
                 if S:
                     p_s, p_b = hits_all[step].nonzero(as_tuple=True)
                     if p_s.numel():
                         poisson_buf.view(-1)[stim_neuron[p_s, p_b] * B + p_b] = True
-                v, g, r, a, spk = step_fn(v, g, r, a, prob, poisson_buf,
-                                          no_spike, V_REST, decay_m, gain,
-                                          decay_s, decay_a, SFA_B_INC, v_th_t,
-                                          v_reset_t, refr_m1, zero_i8)
+                if h is not None:
+                    v, g, r, a, spk, h = step_fn(v, g, r, a, prob, poisson_buf,
+                                                 no_spike, V_REST, decay_m, gain,
+                                                 decay_s, decay_a, SFA_B_INC, v_th_t,
+                                                 v_reset_t, refr_m1, zero_i8, h, decay_h, **bx)
+                else:
+                    v, g, r, a, spk = step_fn(v, g, r, a, prob, poisson_buf,
+                                              no_spike, V_REST, decay_m, gain,
+                                              decay_s, decay_a, SFA_B_INC, v_th_t,
+                                              v_reset_t, refr_m1, zero_i8, **bx)
 
             if APL_GRADED:
                 # A non-spiking APL never fires, so it never resets and never
@@ -1150,7 +1312,8 @@ class GpuSim:
                      "pending": list(pending),
                      "apl_pending": None if apl_pending is None else list(apl_pending),
                      "step0": step0 + n_steps, "b": B,
-                     "apl_graded": bool(APL_GRADED and APL_DELAYED)}
+                     "apl_graded": bool(APL_GRADED and APL_DELAYED),
+                     **({"h": h, "slow": self.slow_cfg} if h is not None else {})}
 
     # ------------------------------------------------------------ readouts
     def views_of(self, counts, t_run=300.0):

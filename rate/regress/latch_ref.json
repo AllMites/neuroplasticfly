@@ -1,0 +1,47 @@
+{
+ "prereg": "PREREGISTER_rate_chunk0_base.md amendment 1 @ b554245",
+ "regime": "eln8",
+ "slack": 139,
+ "conditions": {
+  "FOX": {
+   "n_per_seed": [
+    694,
+    663,
+    618,
+    0,
+    619
+   ],
+   "bound": 833
+  },
+  "SUGAR": {
+   "n_per_seed": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "bound": 139
+  },
+  "BITTER": {
+   "n_per_seed": [
+    695,
+    0,
+    0,
+    0,
+    0
+   ],
+   "bound": 834
+  },
+  "ORN_DM4": {
+   "n_per_seed": [
+    648,
+    684,
+    699,
+    640,
+    0
+   ],
+   "bound": 838
+  }
+ }
+}

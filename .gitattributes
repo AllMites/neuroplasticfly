@@ -1,0 +1,5 @@
+# Keep these byte-for-byte. Their sha256 values were recorded at run time on Windows (CRLF working copies):
+# EVALUATION.md lists the raw-log hashes, every run's meta row holds prereg_sha256, and reference.json
+# hashes the paper-0 logs. Line-ending conversion would change every one of those hashes. See PROVENANCE.md.
+results/** -text
+PREREGISTER_*.md -text

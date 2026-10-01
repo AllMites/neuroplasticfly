@@ -3,7 +3,7 @@
 # record and is not needed by reproduce.py.
 [project]
 name = "neuroplasticfly"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.11"
 dependencies = [
     "torch>=2.6",
@@ -13,10 +13,15 @@ dependencies = [
     "pillow>=12.3.0",
     "scipy>=1.17.1",
     "trimesh>=5.1.0",
-    "matplotlib>=3.8",                      # learn/condition.py plot()
+    "matplotlib>=3.8",                      # learn/condition.py plot(); paper1/ figures
+    "pandas>=2.2",                          # rate/sugar_fox_anatomy.py, rate/gain_bound.py (paper 1)
     "triton-windows>=3.8 ; sys_platform == 'win32'",  # torch.compile backend; gpu_sim.py:458 falls back to eager without it
     "flypoke @ git+https://github.com/vshapenko/flypoke@24814fe83224ca2d25c116c1107440b877b07762",  # scripts/build_data.py loader only
 ]
+
+[project.optional-dependencies]
+# rate/gain_bound.py only: recomputes the gain cap (rate/gain_bound.json ships) from a sibling flyvis checkout.
+flyvis-cap = ["h5py>=3.11"]
 
 [tool.uv.sources]
 torch = { index = "pytorch-cu128" }

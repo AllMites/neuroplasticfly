@@ -1,0 +1,2 @@
+a  LIF spikes in 200 ms step: 6 (30 Hz)
+   rate neuron steady output 30.0 Hz

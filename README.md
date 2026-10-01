@@ -6,7 +6,7 @@ odours through its own antennal lobe, and it holds two associations at once.
 
 Daniel Asis, 2026. [ihateflies.ai](https://www.instagram.com/ihateflies.ai)
 
-**v0.1 scope:** this release reproduces the specificity test of the preprint cited below; the relearning test and experiment tooling come in later releases.
+**v0.2 scope:** the specificity test of the first preprint (paper 0, `reproduce.py`), and everything behind the second paper (paper 1): a rate model of the same brain, calibrated to the spiking model, its reward fit, its learning tests, the spiking reference for relearning, the preregistrations, the raw logs and the figure scripts (see *Paper 1*, below). The closed-loop relearning test of paper 0, which drives a simulated body, is not included yet.
 
 ![Specificity test: odour conditioning through the real antennal lobe](docs/figures/rung_a.png)
 
@@ -89,6 +89,53 @@ python learn/christie_match_run.py            # the full batch, about 130 GPU-mi
 python learn/analyze_christie_match.py        # labels, from results/christie_match/parts
 ```
 
+## Paper 1: is it the neuron or the wiring?
+
+Paper 1 swaps every LIF neuron for a rate neuron calibrated to it, keeps the wiring, and asks which results of the
+spiking model survive. In short: sugar reaches the reward neurons under neither model, while odour learning,
+accumulation and relearning survive; one training block moves the rate model's approach output a third as far.
+Everything below ships in this release.
+
+| Path | What |
+|---|---|
+| `rate/engine.py`, `rate/suite.py`, `rate/as_gpusim.py` | the rate model on the same connectome, its regression suite, and the adapter that runs paper 0's protocol code on it |
+| `rate/chunk0.py`, `rate/lif_ref.py` | calibration to the spiking model (4 global numbers, 28 calibration / 25 held-out odours) |
+| `rate/chunk1*.py`, `rate/chunk1_targets.md`, `rate/gain_bound.{py,json}`, `rate/sugar_fox_anatomy.{py,json}` | the reward circuit, unfitted and fitted (933 type-level gains, cap from the flyvis ensemble), and the anatomy of the route from sugar-sensing neurons to Fox |
+| `rate/chunk2.py`, `rate/chunk2_reference.py`, `tools/analyze_bidir_ref_a2.py` | the learning tests on the rate model and the spiking reference for relearning |
+| `PREREGISTER_rate_*.md` (10) | every preregistration, byte-for-byte as the runs recorded them |
+| `results/rate_*` | results, raw logs and independent evaluations; `results/condition_o1s*`, `persist_p1s*` are the paper-0 logs the reference is built from |
+| `PROVENANCE.md`, `PROVENANCE.json` | the commits the paper cites (made in a private research repository) and the hashes that tie them to the shipped files |
+| `paper1/figs`, `paper1/tables` | every figure and supplementary table, read from `results/` |
+
+### Run it (paper 1)
+
+```
+python reproduce_paper1.py --verify     # hashes: shipped files, run meta rows, evaluation reports (seconds, CPU)
+python reproduce_paper1.py --rescore    # preregistered labelling re-run on the shipped logs (about a minute, CPU)
+python paper1/figs/make_fig3.py         # likewise make_fig1-5.py, paper1/tables/make_tables.py
+```
+
+Both `reproduce_paper1.py` modes ran ALL PASS on this release. `--rescore` reproduces every label and number of the
+reward fit, the 24 learning-test runs and the 10 spiking-reference runs from the shipped logs. The original analyzers
+refuse to run unless the repository is at the commit the runs were made at, which lives in the private research
+repository; `--rescore` supplies the recorded commit and code hashes after `--verify` has checked the bytes.
+
+Regenerating the runs needs a CUDA GPU and the built `data/`: the 24 learning-test runs take about 20 min
+(`rate/chunk2.py`, run lines in its docstring), the 10 spiking-reference runs about 4 h, the 45 reward fits about
+2.5 h and the calibration about 3 h. Fresh runs carry this repository's commit, so the analyzers then work directly.
+`paper1/figs/compute_fig2_r.py` recomputes the per-odour correlations of Fig. 2a on the GPU and checks that their
+median equals the recorded one. The runs used Python 3.14.4, torch 2.11.0+cu128, numpy 2.5.3 and scipy 1.18.1.
+
+Notes on the shipped code:
+- Files whose hashes the runs recorded (`rate/chunk2.py`, `rate/engine.py`, `rate/suite.py`, `rate/as_gpusim.py`,
+  `gpu_sim.py`, `learn/plastic.py`, `learn/condition.py`, the preregistrations) are shipped exactly as run, so some
+  comments name internal decisions (D##, H##), planning files or earlier video projects; these refer to a private log
+  and change nothing in the code.
+- `gpu_sim.py`, `learn/plastic.py` and `learn/condition.py` replace their v0.1 versions. The additions (a slow channel,
+  a bias option, the timing rule `update_timed`) are off by default, and paper 0's specificity test reproduces on this
+  tree (`reproduce.py`).
+- `tools/gpu_slot.py` only queues GPU jobs between parallel runs; every command it wraps also runs without it.
+
 ## What this is not
 
 These constrain every claim made about this repository.
@@ -130,7 +177,13 @@ mtimes, so the same brain hashes differently on every rebuild.
 ## Layout
 
 ```
-reproduce.py          clone -> rung A, one command
+reproduce.py          clone -> rung A, one command (paper 0)
+reproduce_paper1.py   paper 1: --verify hashes, --rescore labels from the shipped logs (CPU)
+rate/                 paper 1 rate model: engine, calibration, reward fit, learning tests, suite, tests
+paper1/               paper 1 figure and table scripts
+PREREGISTER_rate_*.md paper 1 preregistrations (byte-for-byte, see .gitattributes)
+PROVENANCE.{md,json}  cited private-repository commits -> shipped file hashes
+results/              paper 1 results, raw logs, evaluations; paper-0 logs used as references
 scripts/              fetch_data, build_data (flypoke loader), build_floor_brains, checksum_data, plot_rung_a
 gpu_sim.py            the engine: one CSR tensor, LIF step, run_batch
 learn/                conditioning, plasticity rule, CS gate, seed analysis
@@ -158,7 +211,9 @@ reproduce their output array for array.
 
 ## Cite
 
-Preprint: Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. Zenodo. [https://doi.org/10.5281/zenodo.23017031](https://doi.org/10.5281/zenodo.23017031)
+Paper 0 (odour learning): Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. Zenodo. [https://doi.org/10.5281/zenodo.23017031](https://doi.org/10.5281/zenodo.23017031)
+
+Paper 1 (neuron model vs wiring): Asis, D. (2026). Is it the neuron or the wiring? Swapping spiking for rate neurons in a whole-brain model of the fly. [Preprint; DOI to be added on posting.]
 
 Software: `CITATION.cff`. Code is MIT (`LICENSE`); figures CC-BY; the connectome is not mine to
 license (see *Data*).

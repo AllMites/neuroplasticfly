@@ -1,0 +1,16 @@
+{
+ "source": "results/rate_chunk1_control_c0/result.json (unfitted, chunk-0 base)",
+ "rows": {
+  "F1": false,
+  "F2": false,
+  "F3": false,
+  "F4": false,
+  "F5": true,
+  "H1": false,
+  "H2": false,
+  "H3": true,
+  "H4": false,
+  "H5": true,
+  "H6": false
+ }
+}

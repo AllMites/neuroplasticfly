@@ -1,0 +1,82 @@
+[gpu_slot] slot0.lock acquired
+F:\Workspace\Project Files\fly\flychess\rate\chunk1_fit.py:57: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  done = all(float(D[c]) >= C1.UP for c in C1.R_COMP) and float(D["b1"]) < C1.NONE
+cap   2.000 seed 0: 400 iters   426 s  F False  H False  loss 4.7424
+cap   2.000 seed 1: 400 iters   527 s  F False  H False  loss 4.7428
+cap   2.000 seed 2: 400 iters   528 s  F False  H False  loss 4.7423
+cap   2.000 seed 3: 400 iters   526 s  F False  H False  loss 4.7360
+cap   2.000 seed 4: 400 iters   480 s  F False  H False  loss 4.7416
+cap   4.000 seed 0: 400 iters   520 s  F False  H False  loss 2.3889
+cap   4.000 seed 1: 400 iters   518 s  F False  H False  loss 2.3925
+cap   4.000 seed 2: 400 iters   512 s  F False  H False  loss 2.3909
+cap   4.000 seed 3: 400 iters   489 s  F False  H False  loss 2.3883
+cap   4.000 seed 4: 400 iters   517 s  F False  H False  loss 2.3916
+cap   8.000 seed 0: 400 iters   505 s  F False  H False  loss 1.0882
+cap   8.000 seed 1: 400 iters   563 s  F False  H False  loss 1.0976
+cap   8.000 seed 2: 400 iters   384 s  F False  H False  loss 1.0894
+cap   8.000 seed 3: 400 iters   499 s  F False  H False  loss 1.0884
+cap   8.000 seed 4: 400 iters   596 s  F False  H False  loss 1.0928
+cap  16.000 seed 0:  38 iters    59 s  F True  H False  loss 0.8966
+cap  16.000 seed 1:  37 iters    58 s  F True  H False  loss 0.9222
+cap  16.000 seed 2:  38 iters    37 s  F True  H False  loss 0.9127
+cap  16.000 seed 3:  39 iters    37 s  F True  H False  loss 0.8779
+cap  16.000 seed 4:  37 iters    36 s  F True  H False  loss 0.9249
+cap  18.287 seed 0:  35 iters    36 s  F True  H False  loss 0.9229
+cap  18.287 seed 1:  34 iters    35 s  F True  H False  loss 0.9449
+cap  18.287 seed 2:  35 iters    48 s  F True  H False  loss 0.9399
+cap  18.287 seed 3:  37 iters    37 s  F True  H False  loss 0.8638
+cap  18.287 seed 4:  34 iters    33 s  F True  H False  loss 0.9392
+cap  32.000 seed 0:  30 iters    30 s  F True  H False  loss 0.9599
+cap  32.000 seed 1:  29 iters    28 s  F True  H False  loss 0.9699
+cap  32.000 seed 2:  30 iters    29 s  F True  H False  loss 0.9563
+cap  32.000 seed 3:  32 iters    32 s  F True  H False  loss 0.8726
+cap  32.000 seed 4:  29 iters    29 s  F True  H False  loss 0.9428
+cap  64.000 seed 0:  28 iters    27 s  F True  H False  loss 0.9669
+cap  64.000 seed 1:  27 iters    27 s  F True  H False  loss 0.9752
+cap  64.000 seed 2:  28 iters    28 s  F True  H False  loss 0.9531
+cap  64.000 seed 3:  30 iters    29 s  F True  H False  loss 0.8632
+cap  64.000 seed 4:  26 iters    26 s  F True  H False  loss 1.0208
+cap 128.000 seed 0:  27 iters    40 s  F True  H False  loss 0.9905
+cap 128.000 seed 1:  26 iters    29 s  F True  H False  loss 0.9856
+cap 128.000 seed 2:  27 iters    36 s  F True  H False  loss 0.9629
+cap 128.000 seed 3:  29 iters    44 s  F True  H False  loss 0.8732
+cap 128.000 seed 4:  26 iters    38 s  F True  H False  loss 0.9411
+cap 256.000 seed 0:  27 iters    39 s  F True  H False  loss 0.9420
+cap 256.000 seed 1:  26 iters    46 s  F True  H False  loss 0.9443
+cap 256.000 seed 2:  27 iters    46 s  F True  H False  loss 0.9240
+cap 256.000 seed 3:  28 iters    48 s  F True  H False  loss 0.9439
+cap 256.000 seed 4:  25 iters    43 s  F True  H False  loss 1.0070
+{
+ "prereg": "PREREGISTER_rate_chunk1_fit.md @ 2838bfe + amendments 1-2 + PREREGISTER_rate_chunk1_fit_c0.md @ ee4ecbf (chunk-0 base)",
+ "g_star": 16.0,
+ "held_out_seeds": 0,
+ "label": "FIT-NO-TRANSFER",
+ "failing_rows": [
+  "H1",
+  "H2",
+  "H4",
+  "H6"
+ ],
+ "n_active": 84,
+ "rho_median": 0.9305254631973272,
+ "qualifier": "CONSISTENT",
+ "max_fox_x_r_product": [
+  79.97184457442133,
+  [
+   "CB0525",
+   "CB0546",
+   "PAM03"
+  ]
+ ]
+}
+cap 2.0     F-pass 0/5  H-pass(of F) 0  iters [400, 400, 400, 400, 400]
+cap 4.0     F-pass 0/5  H-pass(of F) 0  iters [400, 400, 400, 400, 400]
+cap 8.0     F-pass 0/5  H-pass(of F) 0  iters [400, 400, 400, 400, 400]
+cap 16.0    F-pass 5/5  H-pass(of F) 0  iters [38, 37, 38, 39, 37]
+cap 18.287  F-pass 5/5  H-pass(of F) 0  iters [35, 34, 35, 37, 34]
+cap 32.0    F-pass 5/5  H-pass(of F) 0  iters [30, 29, 30, 32, 29]
+cap 64.0    F-pass 5/5  H-pass(of F) 0  iters [28, 27, 28, 30, 26]
+cap 128.0   F-pass 5/5  H-pass(of F) 0  iters [27, 26, 27, 29, 26]
+cap 256.0   F-pass 5/5  H-pass(of F) 0  iters [27, 26, 27, 28, 25]
+EXIT 0

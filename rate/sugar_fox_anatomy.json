@@ -1,0 +1,314 @@
+{
+ "1": {
+  "floor": 1,
+  "fox_total_input_syn": 2061,
+  "fox_n_input_partners": 542,
+  "direct_sugar_to_fox_syn": 7,
+  "n_two_hop_interneurons": 122,
+  "two_hop_share_of_fox_input": 0.36001940805434257,
+  "top_two_hop_types": [
+   {
+    "type": "CB0038",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 17,
+    "syn_to_fox": 120,
+    "sugar_share_of_X_input": 0.0028,
+    "X_share_of_fox_input": 0.0582
+   },
+   {
+    "type": "CB0620",
+    "super_class": "central",
+    "nt": "glutamate",
+    "n": 2,
+    "syn_from_sugar": 4,
+    "syn_to_fox": 57,
+    "sugar_share_of_X_input": 0.0029,
+    "X_share_of_fox_input": 0.0277
+   },
+   {
+    "type": "CB0016",
+    "super_class": "central",
+    "nt": "glutamate",
+    "n": 2,
+    "syn_from_sugar": 6,
+    "syn_to_fox": 48,
+    "sugar_share_of_X_input": 0.0009,
+    "X_share_of_fox_input": 0.0233
+   },
+   {
+    "type": "CB0276",
+    "super_class": "central",
+    "nt": "gaba",
+    "n": 1,
+    "syn_from_sugar": 1,
+    "syn_to_fox": 42,
+    "sugar_share_of_X_input": 0.0008,
+    "X_share_of_fox_input": 0.0204
+   },
+   {
+    "type": "CB0137",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 97,
+    "syn_to_fox": 38,
+    "sugar_share_of_X_input": 0.0317,
+    "X_share_of_fox_input": 0.0184
+   },
+   {
+    "type": "CB3674",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 32,
+    "syn_to_fox": 26,
+    "sugar_share_of_X_input": 0.0111,
+    "X_share_of_fox_input": 0.0126
+   },
+   {
+    "type": "CB0070",
+    "super_class": "central",
+    "nt": "gaba",
+    "n": 2,
+    "syn_from_sugar": 291,
+    "syn_to_fox": 25,
+    "sugar_share_of_X_input": 0.2579,
+    "X_share_of_fox_input": 0.0121
+   },
+   {
+    "type": "CB0499",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 363,
+    "syn_to_fox": 23,
+    "sugar_share_of_X_input": 0.0825,
+    "X_share_of_fox_input": 0.0112
+   },
+   {
+    "type": "CB0542",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 7,
+    "syn_to_fox": 20,
+    "sugar_share_of_X_input": 0.004,
+    "X_share_of_fox_input": 0.0097
+   },
+   {
+    "type": "AN_GNG_21",
+    "super_class": "ascending",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 478,
+    "syn_to_fox": 19,
+    "sugar_share_of_X_input": 0.2018,
+    "X_share_of_fox_input": 0.0092
+   },
+   {
+    "type": "AN_GNG_30",
+    "super_class": "ascending",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 1238,
+    "syn_to_fox": 19,
+    "sugar_share_of_X_input": 0.4685,
+    "X_share_of_fox_input": 0.0092
+   },
+   {
+    "type": "CB0525",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 7,
+    "syn_to_fox": 16,
+    "sugar_share_of_X_input": 0.0033,
+    "X_share_of_fox_input": 0.0078
+   },
+   {
+    "type": "CB0588",
+    "super_class": "central",
+    "nt": "glutamate",
+    "n": 2,
+    "syn_from_sugar": 43,
+    "syn_to_fox": 14,
+    "sugar_share_of_X_input": 0.0074,
+    "X_share_of_fox_input": 0.0068
+   },
+   {
+    "type": "CB0799",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 73,
+    "syn_to_fox": 14,
+    "sugar_share_of_X_input": 0.011,
+    "X_share_of_fox_input": 0.0068
+   },
+   {
+    "type": "CB0560",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 7,
+    "syn_to_fox": 13,
+    "sugar_share_of_X_input": 0.0048,
+    "X_share_of_fox_input": 0.0063
+   }
+  ],
+  "influence_sugar_to_fox_by_hop": {
+   "1": {
+    "signed": 0.003277272040492559,
+    "abs": 0.003277272040492559
+   },
+   "2": {
+    "signed": 0.0073084406354295755,
+    "abs": 0.016354423866174167
+   },
+   "3": {
+    "signed": 0.004391161636871444,
+    "abs": 0.02200307017586251
+   },
+   "4": {
+    "signed": -0.0012129640756172496,
+    "abs": 0.021559733225572947
+   }
+  },
+  "ref_fdaI_share_of_pam_input": 0.004341624818869979,
+  "ref_ornDM4_share_of_dm4pn_input": 0.22490194837510408,
+  "ref_n": {
+   "fda_i": 8,
+   "pam": 307,
+   "orn_dm4": 41,
+   "dm4_pn": 4
+  }
+ },
+ "5": {
+  "floor": 5,
+  "fox_total_input_syn": 1320,
+  "fox_n_input_partners": 119,
+  "direct_sugar_to_fox_syn": 0,
+  "n_two_hop_interneurons": 13,
+  "two_hop_share_of_fox_input": 0.08409090909090909,
+  "top_two_hop_types": [
+   {
+    "type": "CB0499",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 306,
+    "syn_to_fox": 22,
+    "sugar_share_of_X_input": 0.0792,
+    "X_share_of_fox_input": 0.0167
+   },
+   {
+    "type": "CB0070",
+    "super_class": "central",
+    "nt": "gaba",
+    "n": 2,
+    "syn_from_sugar": 143,
+    "syn_to_fox": 17,
+    "sugar_share_of_X_input": 0.284,
+    "X_share_of_fox_input": 0.0129
+   },
+   {
+    "type": "AN_GNG_30",
+    "super_class": "ascending",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 1155,
+    "syn_to_fox": 15,
+    "sugar_share_of_X_input": 0.4955,
+    "X_share_of_fox_input": 0.0114
+   },
+   {
+    "type": "AN_GNG_21",
+    "super_class": "ascending",
+    "nt": "acetylcholine",
+    "n": 1,
+    "syn_from_sugar": 96,
+    "syn_to_fox": 14,
+    "sugar_share_of_X_input": 0.1273,
+    "X_share_of_fox_input": 0.0106
+   },
+   {
+    "type": "CB0137",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 1,
+    "syn_from_sugar": 5,
+    "syn_to_fox": 11,
+    "sugar_share_of_X_input": 0.0045,
+    "X_share_of_fox_input": 0.0083
+   },
+   {
+    "type": "CB3674",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 1,
+    "syn_from_sugar": 5,
+    "syn_to_fox": 11,
+    "sugar_share_of_X_input": 0.0042,
+    "X_share_of_fox_input": 0.0083
+   },
+   {
+    "type": "CB0501",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 2,
+    "syn_from_sugar": 299,
+    "syn_to_fox": 10,
+    "sugar_share_of_X_input": 0.2109,
+    "X_share_of_fox_input": 0.0076
+   },
+   {
+    "type": "CB0799",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 1,
+    "syn_from_sugar": 5,
+    "syn_to_fox": 6,
+    "sugar_share_of_X_input": 0.0018,
+    "X_share_of_fox_input": 0.0045
+   },
+   {
+    "type": "CB0366",
+    "super_class": "central",
+    "nt": "acetylcholine",
+    "n": 1,
+    "syn_from_sugar": 395,
+    "syn_to_fox": 5,
+    "sugar_share_of_X_input": 0.302,
+    "X_share_of_fox_input": 0.0038
+   }
+  ],
+  "influence_sugar_to_fox_by_hop": {
+   "1": {
+    "signed": 0.0,
+    "abs": 0.0
+   },
+   "2": {
+    "signed": 0.0060377172837797885,
+    "abs": 0.01423350886715007
+   },
+   "3": {
+    "signed": 0.008723509280125576,
+    "abs": 0.021936867846191047
+   },
+   "4": {
+    "signed": 0.00018830900095800364,
+    "abs": 0.018192817983401634
+   }
+  },
+  "ref_fdaI_share_of_pam_input": 0.01578768373015082,
+  "ref_ornDM4_share_of_dm4pn_input": 0.22945733657851428,
+  "ref_n": {
+   "fda_i": 8,
+   "pam": 307,
+   "orn_dm4": 41,
+   "dm4_pn": 4
+  }
+ }
+}

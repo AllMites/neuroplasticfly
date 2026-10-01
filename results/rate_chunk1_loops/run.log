@@ -1,0 +1,7 @@
+[gpu_slot] slot0.lock acquired
+seed 0 cap 2: n_up 2  sweep BISTABLE  kills {'C1': False, 'C2': False, 'C3': False, 'C4': False, 'C5': True}  -> NEEDS-REST-OF-BRAIN
+seed 1 cap 2: n_up 2  sweep BISTABLE  kills {'C1': False, 'C2': False, 'C3': False, 'C4': False, 'C5': True}  -> NEEDS-REST-OF-BRAIN
+seed 2 cap 2: n_up 2  sweep BISTABLE  kills {'C1': False, 'C2': False, 'C3': False, 'C4': False, 'C5': True}  -> NEEDS-REST-OF-BRAIN
+seed 3 cap 2: n_up 2  sweep BISTABLE  kills {'C1': False, 'C2': False, 'C3': False, 'C4': False, 'C5': True}  -> NEEDS-REST-OF-BRAIN
+seed 4 cap 2: n_up 2  sweep BISTABLE  kills {'C1': False, 'C2': False, 'C3': False, 'C4': False, 'C5': True}  -> NEEDS-REST-OF-BRAIN
+SUMMARY: sweep BISTABLE, mechanism NEEDS-REST-OF-BRAIN

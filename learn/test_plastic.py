@@ -50,4 +50,53 @@ assert (R.sign < 0).sum() == 5, int((R.sign < 0).sum())
 import gpu_sim as _G                             # here, not at module level: import may init CUDA
 _v = R.signed_values(_G.W_SYN)                    # the scale push() uses, not a literal
 assert np.all(_v[R.sign < 0] < 0) and np.all(_v[R.sign > 0] > 0), "signed_values lost polarity"
-print("ok plastic: toy rule, floor, recovery, lesion, state; real edges", R.n_edges)
+# --- update() is byte-identical to before update_timed existed (sha taken pre-refactor)
+import hashlib as _h
+_rng = np.random.default_rng(1234); _r = (_rng.random(R.n_neurons) * 30).astype(np.float32)
+for _kw in [dict(eta=5e-6, lam=0.01), dict(eta=1e-3, lam=0.0), dict(eta=5e-6, lam=0.01, compartment=True)]:
+    _a = R.update(_r, **_kw)
+assert (R.sha(), _h.sha256(_a.tobytes()).hexdigest()[:16]) == ("555fef2db81fdec6", "8f1b3cbd38d17ea1"),     "update() changed: every past result stops reproducing"
+
+# --- update_timed: forward (odour then/with dopamine) depresses
+T = PL.Plastic.toy(); w0 = T.w0.copy(); appr = T.mbon_valence_of_edge == "approach"
+r = np.zeros(T.n_neurons, np.float32); r[T.kc_of_edge] = 10.0
+T.update_timed(r, eta=1e-4, lam=0.0)                       # tick 1: odour, no DA
+assert np.all(T.dw == 0), "odour alone moved a weight"
+r[T.dan_idx["punish"]] = 20.0
+dw = T.update_timed(r, eta=1e-4, lam=0.0)                  # tick 2: odour + DA
+assert np.allclose(dw[appr], -1e-4 * (10 + 10) * 20 * w0[appr]), dw
+assert np.all(dw[~appr] == 0), "punish moved avoid edges"
+# --- backward (dopamine then odour) potentiates, and only that valence
+T = PL.Plastic.toy(); r[:] = 0.0; r[T.dan_idx["punish"]] = 20.0
+T.update_timed(r, eta=1e-4, lam=0.0)                       # tick 1: DA in clean air
+assert np.all(T.dw == 0), "DA with no KC activity moved a weight"
+r[:] = 0.0; r[T.kc_of_edge] = 10.0
+dw = T.update_timed(r, eta=1e-4, lam=0.0)                  # tick 2: odour after DA
+assert np.allclose(dw[appr], 1e-4 * 20 * 10 * w0[appr]), dw
+assert np.all(dw[~appr] == 0)
+# --- ceiling, with the recovery-aware resting ceiling actually counted.
+# DA / odour / blank, not DA / odour: back-to-back alternation makes every DA tick
+# ALSO a forward pairing with the odour tick before it, and dep cancels pot.
+T = PL.Plastic.toy()
+for _ in range(300):
+    # lam once per cycle, as the protocol applies it (US ticks only, PREREGISTER_bidir)
+    r[:] = 0.0; r[T.dan_idx["punish"]] = 20.0; T.update_timed(r, eta=1e-3, lam=0.0)
+    r[:] = 0.0; r[T.kc_of_edge] = 10.0; T.update_timed(r, eta=1e-3, lam=0.01)
+    r[:] = 0.0; T.update_timed(r, eta=1e-3, lam=0.0)
+assert np.all(T.w() <= PL.W_MAX * T.w0 + 1e-5), "above ceiling"
+assert T.summary()["n_at_ceiling"] == int(appr.sum()), T.summary()
+# --- floor unchanged under forward pairing
+T = PL.Plastic.toy(); r[:] = 0.0; r[T.kc_of_edge] = 10.0; r[T.dan_idx["punish"]] = 20.0
+for _ in range(300):
+    T.update_timed(r, eta=1e-3, lam=0.01)
+assert np.all(T.w() >= PL.W_MIN * T.w0 - 1e-5) and T.summary()["n_at_floor"] == int(appr.sum())
+# --- lesion all: nothing moves; reset_lag drops the pot term
+T = PL.Plastic.toy(); r[:] = 20.0
+for _ in range(3):
+    assert np.all(T.update_timed(r, eta=1e-3, lam=0.0, lesion="all") == 0)
+T = PL.Plastic.toy(); r[:] = 0.0; r[T.dan_idx["punish"]] = 20.0
+T.update_timed(r, eta=1e-4, lam=0.0); T.reset_lag()
+r[:] = 0.0; r[T.kc_of_edge] = 10.0
+assert np.all(T.update_timed(r, eta=1e-4, lam=0.0) == 0), "reset_lag left a pot term"
+print("ok plastic: toy rule, floor, recovery, lesion, state; real edges", R.n_edges,
+      "| update() sha frozen | timed: forward dep, backward pot, ceiling, floor, lesion, reset")

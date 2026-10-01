@@ -1,0 +1,27 @@
+# Supplementary Information
+
+## Supplementary Methods
+
+**Full relearning rule.** For each run, A(t) is the mean rate of the approach MBONs to DC2 at test t, and the level is minus A, so that a rise in level means learning. The rise of cycle k is the level after paired block k minus the level after the preceding block with dopamine first (after T0 for k = 1), and the drop of cycle j is the level after paired block j minus the level after the following block with dopamine first. The first rise is normalised by A(T0) of the same run. A cycle k from 2 to 4 relearns if the first rise is positive, the rise of cycle k is at least half the first rise, and the drop of cycle k − 1 under the timing rule is positive and larger than the drop under the rule that only weakens synapses, compared within the same noise replicate for the spiking model and within the same version for the rate model. The relearning test passes if at least 2 of the 3 scorable cycles relearn and the first rise reaches half of the spiking reference. A spiking replicate counts only if neither of its two runs was stopped by the guard and both have every test; the reference is usable if the first rise is positive in at least 4 of 5 replicates, its mean is positive, and the timing rule relearns in at least 4 of 5 replicates.
+
+**Calibration loss.** For the 28 calibration classes, the loss was the mean squared difference between the logarithm of one plus each neuron's rate in the rate model and in the spiking model's 5-replicate mean, over the 300 ms with drive and over ten 20 ms bins after it, plus a penalty of 10 if the rate model left more neurons firing after any of four test stimuli than the spiking model's worst replicate plus 139 neurons. Held-out classes never entered the loss.
+
+**Reward-fit loss.** Under direct drive of Fox at 150 Hz, the loss was the sum, over compartments γ4, γ5, β2 and β′2, of the squared shortfall below 1.5 Hz, plus the squared excess of β1 above 0.25 Hz, plus 0.01 times the sum over all gains of the squared logarithm of the gain. The margins of 1.5 and 0.25 Hz sit above and below the pass thresholds of 1.0 and 0.5 Hz, and the last term prefers the smallest change that passes. Each gain was the cap times a sigmoid of a free variable, started near 1. Fitting used Adam with a learning rate of 0.1 for up to 400 steps of a 1000 ms run, stopping once all fit rows passed. Because target neurons that start below threshold pass no gradient through the rectified output, the backward pass used a smoothed output on the 25 target groups only.
+
+**Guard and headroom.** Before training in each learning test, the approach MBONs had to fire above 0 Hz and below the maximum rate on the paired odour. On every test, the fraction of active neurons and the rate of MBON06 were compared with a run of the same stimulus before any weight change; a run would have been stopped if the active fraction more than doubled, or if MBON06 fell below half or rose above twice its reference. No run was stopped and no test breached the band.
+
+## Table S1. Preregistration record
+
+| Test | Preregistration (commit in the private research repository, date and time, UTC+8) | Amendments | Runs | Result committed |
+|---|---|---|---|---|
+| Calibration of the rate model | 1a29779, 25 Sep 2026 08:35 | A1 b554245, 08:54: spiking reference changed to the regime of the earlier study and the after-odour rule made relative to it, written before any calibration run | after A1 | 7839719, 25 Sep 12:27 |
+| Reward circuit without fitting | 194be67, 24 Sep 2026 20:37 | note 2c0b86d, 25 Sep 12:28: rerun on the calibrated model | after the note | 9d03f3b, 25 Sep 12:30 |
+| Reward fit | 2838bfe, 24 Sep 2026 22:15 | A1 aca91ff, 22:27, and A2 e8ddc3c, 22:29: smoothed gradient, then confined to the target neurons, both caught by a gradient check before any fit ran; note ee4ecbf, 25 Sep 12:55: rerun on the calibrated model | after the note | db4fcfb, 25 Sep 15:22 |
+| Learning tests on the rate model | 9dd7298, 1 Oct 2026 07:34 | A1 2fe2f2d, 07:39: pre-launch audit fixes | 07:40 to 07:59 | d0b0c92, 1 Oct 08:00 |
+| Spiking reference for relearning | 40c920b, 1 Oct 2026 08:06 | A1 57af1c1, 09:06: analysis clarifications, before any run; A2 c89244f, 13:36: provenance only, after the runs and before analysis (below) | 09:08 to 13:13 | d451801, 1 Oct 13:43 |
+
+The commit hashes refer to a private research repository; PROVENANCE.md in release v0.2 of the code lists each commit with the hashes of the files it touched, which match the shipped files.
+
+Amendment A2 and a disclosure. The tenth run of the spiking reference started after a commit made in parallel had changed one line of documentation in the repository, so it recorded a different commit from the other nine. Its code, data and preregistration hashes were identical to theirs, and A2 allowed the analysis to accept this difference; it changed no rule. While checking that this run was writing its output, I briefly saw some learning values of one replicate before the analysis, against the preregistered rule that nobody reads them first. No number was computed from them, the rules and analysis code were fixed by hash before the runs, and dropping that replicate gives the same result.
+
+**Data.** The raw output files ship with release v0.2 of the code. Their SHA-256 hashes are listed in PROVENANCE.json, and for the learning tests and the spiking reference also in the evaluation reports, and `reproduce_paper1.py --verify` checks them.

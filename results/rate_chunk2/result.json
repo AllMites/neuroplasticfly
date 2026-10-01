@@ -1,0 +1,3245 @@
+{
+ "analyzer": {
+  "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+  "git_dirty_rate": false,
+  "git_dirty_learn": false
+ },
+ "reanalyzed": false,
+ "previous_result_sha256": null,
+ "provenance": {
+  "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+  "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+  "meta": {
+   "rung_a_c0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c0",
+     "fit_seed": null,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c0",
+    "gains": null,
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c0",
+     "fit_seed": null,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c0",
+    "gains": null,
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c0",
+     "fit_seed": null,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c0",
+    "gains": null,
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c0",
+     "fit_seed": null,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c0",
+    "gains": null,
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung_a_c1s0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 0,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s0",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s0.json",
+     "sha256": "dcd5e129a906878d97eedd7eb739c56cbb58d7329fd8fdc3285853ecff35572a",
+     "cap": 16.0,
+     "fit_seed": 0,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c1s0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 0,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s0",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s0.json",
+     "sha256": "dcd5e129a906878d97eedd7eb739c56cbb58d7329fd8fdc3285853ecff35572a",
+     "cap": 16.0,
+     "fit_seed": 0,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c1s0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 0,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s0",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s0.json",
+     "sha256": "dcd5e129a906878d97eedd7eb739c56cbb58d7329fd8fdc3285853ecff35572a",
+     "cap": 16.0,
+     "fit_seed": 0,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c1s0": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 0,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s0",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s0.json",
+     "sha256": "dcd5e129a906878d97eedd7eb739c56cbb58d7329fd8fdc3285853ecff35572a",
+     "cap": 16.0,
+     "fit_seed": 0,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung_a_c1s1": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 1,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s1",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s1.json",
+     "sha256": "889b058078bd11fadc28ca17a2be2d7d1f7a17acb43c108dae9459cf9e6e5e4f",
+     "cap": 16.0,
+     "fit_seed": 1,
+     "n_gains": 933,
+     "n_active": 71
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c1s1": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 1,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s1",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s1.json",
+     "sha256": "889b058078bd11fadc28ca17a2be2d7d1f7a17acb43c108dae9459cf9e6e5e4f",
+     "cap": 16.0,
+     "fit_seed": 1,
+     "n_gains": 933,
+     "n_active": 71
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c1s1": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 1,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s1",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s1.json",
+     "sha256": "889b058078bd11fadc28ca17a2be2d7d1f7a17acb43c108dae9459cf9e6e5e4f",
+     "cap": 16.0,
+     "fit_seed": 1,
+     "n_gains": 933,
+     "n_active": 71
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c1s1": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 1,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s1",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s1.json",
+     "sha256": "889b058078bd11fadc28ca17a2be2d7d1f7a17acb43c108dae9459cf9e6e5e4f",
+     "cap": 16.0,
+     "fit_seed": 1,
+     "n_gains": 933,
+     "n_active": 71
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung_a_c1s2": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 2,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s2",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s2.json",
+     "sha256": "2a183cc7174e0b89ec0384bd305128a44030a0484614f44174d3fea0fe2021ef",
+     "cap": 16.0,
+     "fit_seed": 2,
+     "n_gains": 933,
+     "n_active": 67
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c1s2": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 2,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s2",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s2.json",
+     "sha256": "2a183cc7174e0b89ec0384bd305128a44030a0484614f44174d3fea0fe2021ef",
+     "cap": 16.0,
+     "fit_seed": 2,
+     "n_gains": 933,
+     "n_active": 67
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c1s2": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 2,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s2",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s2.json",
+     "sha256": "2a183cc7174e0b89ec0384bd305128a44030a0484614f44174d3fea0fe2021ef",
+     "cap": 16.0,
+     "fit_seed": 2,
+     "n_gains": 933,
+     "n_active": 67
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c1s2": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 2,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s2",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s2.json",
+     "sha256": "2a183cc7174e0b89ec0384bd305128a44030a0484614f44174d3fea0fe2021ef",
+     "cap": 16.0,
+     "fit_seed": 2,
+     "n_gains": 933,
+     "n_active": 67
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung_a_c1s3": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 3,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s3",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s3.json",
+     "sha256": "7150ef0b211c271e8b40644c3b62dc7f35ab3648d9902f21a6e4557d1c608aa7",
+     "cap": 16.0,
+     "fit_seed": 3,
+     "n_gains": 933,
+     "n_active": 61
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c1s3": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 3,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s3",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s3.json",
+     "sha256": "7150ef0b211c271e8b40644c3b62dc7f35ab3648d9902f21a6e4557d1c608aa7",
+     "cap": 16.0,
+     "fit_seed": 3,
+     "n_gains": 933,
+     "n_active": 61
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c1s3": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 3,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s3",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s3.json",
+     "sha256": "7150ef0b211c271e8b40644c3b62dc7f35ab3648d9902f21a6e4557d1c608aa7",
+     "cap": 16.0,
+     "fit_seed": 3,
+     "n_gains": 933,
+     "n_active": 61
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c1s3": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 3,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s3",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s3.json",
+     "sha256": "7150ef0b211c271e8b40644c3b62dc7f35ab3648d9902f21a6e4557d1c608aa7",
+     "cap": 16.0,
+     "fit_seed": 3,
+     "n_gains": 933,
+     "n_active": 61
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung_a_c1s4": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 4,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung_a",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s4",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s4.json",
+     "sha256": "79fe609d312bff2878286551d9ce4a2b85b8b72bf7abb438d46f822de44a4880",
+     "cap": 16.0,
+     "fit_seed": 4,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "rung3_c1s4": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 4,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "rung3",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s4",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s4.json",
+     "sha256": "79fe609d312bff2878286551d9ce4a2b85b8b72bf7abb438d46f822de44a4880",
+     "cap": 16.0,
+     "fit_seed": 4,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_timed_c1s4": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 4,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "timed",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s4",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s4.json",
+     "sha256": "79fe609d312bff2878286551d9ce4a2b85b8b72bf7abb438d46f822de44a4880",
+     "cap": 16.0,
+     "fit_seed": 4,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   },
+   "bidir_depress_c1s4": {
+    "phase": "meta",
+    "prereg_sha256": "1d4ae3e00cdd14415deb6a5706935ccf42f3962e6eb4402cde62c96e6d08711d",
+    "reference_sha256": "51f00736c27fdef3d9a08b83b98e55bd954ff39104051253e7466992088e669f",
+    "git_head": "2fe2f2ddafedd1372988b4d33ffb8a7d12b512b2",
+    "git_dirty_rate": false,
+    "git_dirty_learn": false,
+    "code_sha256": {
+     "rate/chunk2.py": "ebf036a1a6129f6f82e0050458915a1999a738774c75af2204525f17a18a4687",
+     "rate/engine.py": "cb9b89fc7a31118de178fc02ec4a0de2b63d69a0650a165b5e57917edd60380a",
+     "learn/plastic.py": "fe78d11120a616b0e57a764861cef343979f89d2a8849d1dae8c8528e943e28e",
+     "learn/condition.py": "ea62aaf290d10b0b2dd43cb3cec802fb3b5b76d6b7d11f6f855d8cb4de3395f9",
+     "learn/persist.py": "7bdf4882a7129d9e9e76db6b0a9823756c041c922a5c7c8aa5a89662dc692d25",
+     "gpu_sim.py": "0a38291dec08f85ae6aaf2168e611fa11a4e6ec816d26c84ad7979149dfc388d",
+     "rate/suite.py": "2c33f9dd92fe054b8c75c410dab6dc0db1bc5705460f44612bbae4dbb9573788",
+     "rate/as_gpusim.py": "04d75f02b31082feb25f295642e9685962f5f81a24ce8a5d78b9bc40fed749cf",
+     "rate/chunk1.py": "de4a80d8743ba1f770353722010dda048e5c440969eb04858fd3594391708d76",
+     "rate/chunk1_fit.py": "a5368605efec4afcc5bad0fd6330322858d949be51d553ddbc9f7f68fdbbc8d6",
+     "rate/regress/c0_base.json": "29a7bdc3ce16d9bd45ebf636394f20c3dfe0f265c0d25767556da67b54b56c0f"
+    },
+    "data_sha256": {
+     "data/brain_gpu.npz": "b6308a8f51c0b68d90c78d337c88418a7ccaf10778a37a6de06b7e3e8653f281",
+     "data/neuron_meta.npz": "7d02505d61ce7a5dd673f3f94db29edd35843a0f6cc7cd9f6d5b9b067b276228"
+    },
+    "args": {
+     "smoke": false,
+     "arm": "c1",
+     "fit_seed": 4,
+     "analyze": false,
+     "reanalyze": false,
+     "gate": false,
+     "mode": "bidir",
+     "overwrite": false,
+     "arms": "",
+     "rule": "depress",
+     "train": 30,
+     "relax": 30,
+     "probe": 1,
+     "eta": 5e-06,
+     "lam": 0.01,
+     "seed0": 0
+    },
+    "base": "c1s4",
+    "gains": {
+     "file": "results/rate_chunk1_fit_c0/cells/cap016.000_s4.json",
+     "sha256": "79fe609d312bff2878286551d9ce4a2b85b8b72bf7abb438d46f822de44a4880",
+     "cap": 16.0,
+     "fit_seed": 4,
+     "n_gains": 933,
+     "n_active": 66
+    },
+    "chunk_params_loaded": [],
+    "overwrite": false
+   }
+  }
+ },
+ "rule": "RULE (fixed in code before the batch; thresholds are fractions of reference.json, paper 0):\nApproach component: every gate uses the approach-MBON mean rate, because plasticity acts only on approach synapses in both models (the rate model's avoid baseline is 10-25x paper 0's, so a total avoid_index shift can be moved by avoid MBONs). approach drop = baseline (trial-0, baseline weights) approach-MBON mean minus the approach-MBON mean at the test; positive = learning. Normalised drop = approach drop / the baseline approach-MBON mean of the same arm and odour. The paper-0 normalised drop is its mean approach drop divided by its mean baseline approach (reference.json rung_a.learn_dc2_approach_drop_norm, naive_d_approach_drop_norm, rung3.approach_ratio_of_means). The total avoid_index shift and the avoid-MBON component are reported, never gated.\nHeadroom gate (baseline weights, each probe odour): PASS iff the baseline approach-MBON mean is > 0 and neither MBON group mean is >= 0.95 x r_max. No absolute rate threshold.\nrung A: approach drop = learn-arm DC2 approach at trial 0 minus at the test trial (reference test_trial). PASS iff drop > 0 and normalised drop >= 0.5 x the paper-0 normalised DC2 approach drop and the learn normalised drop exceeds both the lesion and the shuffle arm normalised DC2 drops. D and DA1 are reported, not gated.\nrung 3: ratio = D approach drop of the interfere arm (relax_test end minus trainC_test end) / D approach drop of the rung A reversed arm (D paired with punishment on a naive brain; trial 0 minus test trial). PASS iff both drops are > 0 (same direction as paper 0; two negative drops fail), the rate naive D normalised approach drop >= 0.5 x the paper-0 naive D normalised approach drop (a near-zero denominator cannot inflate the ratio) and ratio >= 0.5 x the paper-0 approach-drop ratio.\nbidir (timed rule scored against the depress rule; both must be in the batch): learning level = minus the DC2 approach-MBON mean; rise_k = level at F_k minus at B_(k-1) (T0 for k = 1) (an approach drop); drop_j = level at F_j minus at B_j. Cycle k = 2..4 relearns iff rise_k >= 0.5 x rise_1 and timed drop_(k-1) > 0 and timed drop_(k-1) > depress drop_(k-1). PASS iff rise_1 / baseline approach DC2 (timed T0) >= 0.5 x the rung A paper-0 normalised DC2 approach drop (borrowed, no MB-level bidir reference exists) and at least 2 cycles relearn.\nArms: arm (i) = base c0 (the frozen C0 brain); its protocol labels are its verdicts. Arm (ii) = bases c1s0..c1s4 (C0 plus the chunk-1 reward-path gains at cap 16, one base per fitted seed). Each seed is labelled per protocol by the rules above on its own baseline. An arm (ii) protocol label is PASS iff at least ceil(0.8 x n) = 4 of the n = 5 seeds PASS that protocol, else FAIL with the per-seed labels and diagnostics listed. The batch is 4 runs x 6 bases = 24 runs; every run needs its done row.\nDiagnostic for a failing protocol (or failing seed), first match wins: READOUT-CEILING > FAIL-UNSTABLE > NO-WEIGHT-CHANGE > LATCH-CONFOUNDED > NEEDS-SPIKING. READOUT-CEILING = any headroom row of the protocol failed its gate (a saturated or a zero baseline); FAIL-UNSTABLE = a guard abort row in an arm the verdict needs, even when its scoring rows exist (an abort voids a PASS); NO-WEIGHT-CHANGE = |w_mean_frac| < 0.1 x |paper-0 value| (rung A learn arm at the test trial; rung 3 interfere arm end of trainC; bidir timed rule, largest |w_mean_frac| over its test rows, rung A value borrowed); LATCH-CONFOUNDED = a BASELINE latch row of the protocol has latched True (end rows are reported, never gated); NEEDS-SPIKING = none of the above. A failing protocol with missing rows and neither an abort row nor a failed headroom row to explain them is INCOMPLETE-DATA (a pipeline fault, not a finding).",
+ "c0": {
+  "protocols": {
+   "rung_a": {
+    "label": "PASS",
+    "diagnostic": null,
+    "passed": true,
+    "numbers": {
+     "test_trial": 30,
+     "baseline_approach_hz": 26.495725631713867,
+     "approach_drop_hz": 15.229076385498047,
+     "norm_approach_drop": 0.5747748371635353,
+     "threshold_norm": 0.48573175568171784,
+     "lesion_norm_approach_drop": 0.0,
+     "shuffle_norm_approach_drop": 0.016234947241784498,
+     "d_approach_drop_hz": 0.8916378021240234,
+     "reversed_d_approach_drop_hz": 14.654275894165039,
+     "dc2_avoid_index_shift": 16.076890468597412,
+     "dc2_avoid_component_shift_hz": 0.8478140830993652,
+     "lesion_dc2_avoid_index_shift": 0.0,
+     "shuffle_dc2_avoid_index_shift": 0.43723487854003906,
+     "d_avoid_index_shift": 0.9838504791259766,
+     "da1_avoid_index_shift": 0.2167518138885498,
+     "reversed_d_avoid_index_shift": 16.10620403289795,
+     "shifts": {
+      "learn": {
+       "dc2": 16.076890468597412,
+       "d": 0.9838504791259766,
+       "da1": 0.2167518138885498
+      },
+      "lesion": {
+       "dc2": 0.0,
+       "d": 0.0,
+       "da1": 0.0
+      },
+      "reversed": {
+       "dc2": 0.9029445648193359,
+       "d": 16.10620403289795,
+       "da1": 0.22748327255249023
+      },
+      "frozen": {
+       "dc2": 0.0,
+       "d": 0.0,
+       "da1": 0.0
+      },
+      "shuffle": {
+       "dc2": 0.43723487854003906,
+       "d": 0.5757675170898438,
+       "da1": 0.15559077262878418
+      }
+     },
+     "w_mean_frac": -0.019881578162312508,
+     "w_mean_frac_ref": -0.01972440108656883
+    }
+   },
+   "rung3": {
+    "label": "PASS",
+    "diagnostic": null,
+    "passed": true,
+    "numbers": {
+     "trained_d_approach_drop_hz": 14.191967964172363,
+     "naive_d_approach_drop_hz": 14.654275894165039,
+     "baseline_approach_d_hz": 24.846376419067383,
+     "naive_norm_approach_drop": 0.5897952943721478,
+     "ratio": 0.968452352519393,
+     "ref_ratio": 0.8581447846590077,
+     "threshold_ratio": 0.42907239232950384,
+     "naive_min_norm": 0.4673469372840918,
+     "trained_d_avoid_index_shift": 15.672690868377686,
+     "trained_d_avoid_component_shift_hz": 1.4807233810424805,
+     "naive_d_avoid_index_shift": 16.10620403289795,
+     "naive_d_avoid_component_shift_hz": 1.451927661895752,
+     "w_mean_frac": -0.029269669204950333,
+     "w_mean_frac_ref": -0.027911025285720825
+    }
+   },
+   "bidir": {
+    "label": "FAIL",
+    "diagnostic": "NEEDS-SPIKING",
+    "passed": false,
+    "numbers": {
+     "f1_min_rise_norm": 0.48573175568171784,
+     "baseline_approach_hz": 26.495725631713867,
+     "w_mean_frac": -0.01911986619234085,
+     "w_mean_frac_ref": -0.01972440108656883,
+     "cycles": {
+      "2": {
+       "rise": 4.232524871826172,
+       "timed_drop_prev": 0.8063621520996094,
+       "depress_drop_prev": 0.21353912353515625,
+       "relearns": true
+      },
+      "3": {
+       "rise": 4.06324577331543,
+       "timed_drop_prev": 1.2515869140625,
+       "depress_drop_prev": 0.4503154754638672,
+       "relearns": true
+      },
+      "4": {
+       "rise": 3.7874269485473633,
+       "timed_drop_prev": 1.32537841796875,
+       "depress_drop_prev": 0.6490364074707031,
+       "relearns": true
+      }
+     },
+     "rise_1_avoid_index": 3.424165725708008,
+     "rise_1_avoid_component_hz": -0.03800153732299805,
+     "rise_1": 3.462167739868164,
+     "rise_1_norm": 0.1306689157334928,
+     "n_relearn": 3,
+     "scorable": 3
+    }
+   }
+  },
+  "end_latch": [
+   {
+    "arm": "learn",
+    "phase": "latch",
+    "protocol": "rung_a",
+    "song": "dc2",
+    "when": "end",
+    "n_latched": 738,
+    "n_latched_kc_paired": 0,
+    "n_kc_paired": 332,
+    "n_latched_mbon_approach": 6,
+    "n_latched_mbon_avoid": 1,
+    "approach_latched_rate_frac": 0.353196020989552,
+    "n_latched_ppl1": 4,
+    "n_latched_pam": 13,
+    "ppl1_hz_offset": 3.442549159129461,
+    "pam_hz_offset": 0.3530225778417207,
+    "latched": false,
+    "off_ms": 200.0,
+    "win_ms": 100.0,
+    "log": "rung_a"
+   },
+   {
+    "arm": "interfere",
+    "phase": "latch",
+    "protocol": "rung3",
+    "song": "dc2",
+    "when": "end",
+    "n_latched": 739,
+    "n_latched_kc_paired": 0,
+    "n_kc_paired": 332,
+    "n_latched_mbon_approach": 6,
+    "n_latched_mbon_avoid": 1,
+    "approach_latched_rate_frac": 0.3028112324055758,
+    "n_latched_ppl1": 4,
+    "n_latched_pam": 13,
+    "ppl1_hz_offset": 3.419508934020996,
+    "pam_hz_offset": 0.3534583113359512,
+    "latched": false,
+    "off_ms": 200.0,
+    "win_ms": 100.0,
+    "log": "rung3"
+   },
+   {
+    "arm": "interfere",
+    "phase": "latch",
+    "protocol": "rung3",
+    "song": "d",
+    "when": "end",
+    "n_latched": 739,
+    "n_latched_kc_paired": 0,
+    "n_kc_paired": 322,
+    "n_latched_mbon_approach": 6,
+    "n_latched_mbon_avoid": 1,
+    "approach_latched_rate_frac": 0.3490176295096937,
+    "n_latched_ppl1": 4,
+    "n_latched_pam": 13,
+    "ppl1_hz_offset": 3.456276853879293,
+    "pam_hz_offset": 0.35281123035262774,
+    "latched": false,
+    "off_ms": 200.0,
+    "win_ms": 100.0,
+    "log": "rung3"
+   },
+   {
+    "arm": "bidir_timed",
+    "phase": "latch",
+    "protocol": "bidir",
+    "song": "dc2",
+    "when": "end",
+    "n_latched": 740,
+    "n_latched_kc_paired": 0,
+    "n_kc_paired": 332,
+    "n_latched_mbon_approach": 6,
+    "n_latched_mbon_avoid": 1,
+    "approach_latched_rate_frac": 0.2884511680835775,
+    "n_latched_ppl1": 4,
+    "n_latched_pam": 13,
+    "ppl1_hz_offset": 3.450999657313029,
+    "pam_hz_offset": 0.3529161391082047,
+    "latched": false,
+    "off_ms": 200.0,
+    "win_ms": 100.0,
+    "log": "bidir_timed"
+   },
+   {
+    "arm": "bidir_depress",
+    "phase": "latch",
+    "protocol": "bidir",
+    "song": "dc2",
+    "when": "end",
+    "n_latched": 739,
+    "n_latched_kc_paired": 0,
+    "n_kc_paired": 332,
+    "n_latched_mbon_approach": 6,
+    "n_latched_mbon_avoid": 1,
+    "approach_latched_rate_frac": 0.3121783969800738,
+    "n_latched_ppl1": 4,
+    "n_latched_pam": 13,
+    "ppl1_hz_offset": 3.419030954440435,
+    "pam_hz_offset": 0.3534079853336081,
+    "latched": false,
+    "off_ms": 200.0,
+    "win_ms": 100.0,
+    "log": "bidir_depress"
+   }
+  ],
+  "guard": {
+   "rung_a/learn": {
+    "n": 51,
+    "max_active_ratio": 1.0079617834394903,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung_a/lesion": {
+    "n": 51,
+    "max_active_ratio": 1.0,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung_a/reversed": {
+    "n": 51,
+    "max_active_ratio": 1.0,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung_a/frozen": {
+    "n": 81,
+    "max_active_ratio": 1.0,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung_a/shuffle": {
+    "n": 51,
+    "max_active_ratio": 1.001592356687898,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung3/retain": {
+    "n": 39,
+    "max_active_ratio": 1.0079617834394903,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung3/interfere": {
+    "n": 57,
+    "max_active_ratio": 1.0079617834394903,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "rung3/lesion": {
+    "n": 57,
+    "max_active_ratio": 1.0,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "bidir_timed/bidir_timed": {
+    "n": 27,
+    "max_active_ratio": 1.0055732484076432,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   },
+   "bidir_depress/bidir_depress": {
+    "n": 27,
+    "max_active_ratio": 1.0095541401273884,
+    "min_mbon06_ratio": null,
+    "max_mbon06_ratio": null,
+    "breaches": 0,
+    "aborted": false
+   }
+  },
+  "logs_present": {
+   "rung_a": 695,
+   "rung3": 554,
+   "bidir_timed": 59,
+   "bidir_depress": 59
+  },
+  "arm": "(i)"
+ },
+ "c1": {
+  "arm": "(ii)",
+  "arm_labels": {
+   "rung_a": {
+    "label": "PASS",
+    "n_pass": 5,
+    "n_seeds": 5,
+    "need": 4,
+    "passing_seeds": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "per_seed": {
+     "0": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "1": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "2": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "3": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "4": {
+      "label": "PASS",
+      "diagnostic": null
+     }
+    }
+   },
+   "rung3": {
+    "label": "PASS",
+    "n_pass": 5,
+    "n_seeds": 5,
+    "need": 4,
+    "passing_seeds": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "per_seed": {
+     "0": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "1": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "2": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "3": {
+      "label": "PASS",
+      "diagnostic": null
+     },
+     "4": {
+      "label": "PASS",
+      "diagnostic": null
+     }
+    }
+   },
+   "bidir": {
+    "label": "FAIL",
+    "n_pass": 0,
+    "n_seeds": 5,
+    "need": 4,
+    "passing_seeds": [],
+    "per_seed": {
+     "0": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING"
+     },
+     "1": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING"
+     },
+     "2": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING"
+     },
+     "3": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING"
+     },
+     "4": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING"
+     }
+    }
+   }
+  },
+  "seeds": {
+   "0": {
+    "protocols": {
+     "rung_a": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "test_trial": 30,
+       "baseline_approach_hz": 26.49931526184082,
+       "approach_drop_hz": 15.241668701171875,
+       "norm_approach_drop": 0.5751721714530478,
+       "threshold_norm": 0.48573175568171784,
+       "lesion_norm_approach_drop": 0.0,
+       "shuffle_norm_approach_drop": 0.016241457286558753,
+       "d_approach_drop_hz": 0.8945579528808594,
+       "reversed_d_approach_drop_hz": 14.667041778564453,
+       "dc2_avoid_index_shift": 16.014220237731934,
+       "dc2_avoid_component_shift_hz": 0.772552490234375,
+       "lesion_dc2_avoid_index_shift": 0.0,
+       "shuffle_dc2_avoid_index_shift": 0.4370746612548828,
+       "d_avoid_index_shift": 0.9953250885009766,
+       "da1_avoid_index_shift": 0.2167518138885498,
+       "reversed_d_avoid_index_shift": 15.949913501739502,
+       "shifts": {
+        "learn": {
+         "dc2": 16.014220237731934,
+         "d": 0.9953250885009766,
+         "da1": 0.2167518138885498
+        },
+        "lesion": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "reversed": {
+         "dc2": 0.9020824432373047,
+         "d": 15.949913501739502,
+         "da1": 0.22748327255249023
+        },
+        "frozen": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "shuffle": {
+         "dc2": 0.4370746612548828,
+         "d": 0.5661239624023438,
+         "da1": 0.15559077262878418
+        }
+       },
+       "w_mean_frac": -0.02016499452292919,
+       "w_mean_frac_ref": -0.01972440108656883
+      }
+     },
+     "rung3": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "trained_d_approach_drop_hz": 14.203584671020508,
+       "naive_d_approach_drop_hz": 14.667041778564453,
+       "baseline_approach_d_hz": 24.8519287109375,
+       "naive_norm_approach_drop": 0.590177203112183,
+       "ratio": 0.9684014599166632,
+       "ref_ratio": 0.8581447846590077,
+       "threshold_ratio": 0.42907239232950384,
+       "naive_min_norm": 0.4673469372840918,
+       "trained_d_avoid_index_shift": 15.498880386352539,
+       "trained_d_avoid_component_shift_hz": 1.2952961921691895,
+       "naive_d_avoid_index_shift": 15.949913501739502,
+       "naive_d_avoid_component_shift_hz": 1.2828712463378906,
+       "w_mean_frac": -0.029756642878055573,
+       "w_mean_frac_ref": -0.027911025285720825
+      }
+     },
+     "bidir": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING",
+      "passed": false,
+      "numbers": {
+       "f1_min_rise_norm": 0.48573175568171784,
+       "baseline_approach_hz": 26.49931526184082,
+       "w_mean_frac": -0.029874326661229134,
+       "w_mean_frac_ref": -0.01972440108656883,
+       "cycles": {
+        "2": {
+         "rise": 4.987064361572266,
+         "timed_drop_prev": 0.5903339385986328,
+         "depress_drop_prev": 0.2138385772705078,
+         "relearns": true
+        },
+        "3": {
+         "rise": 4.348813056945801,
+         "timed_drop_prev": 1.4092445373535156,
+         "depress_drop_prev": 0.4507579803466797,
+         "relearns": true
+        },
+        "4": {
+         "rise": 4.206772804260254,
+         "timed_drop_prev": 1.8746919631958008,
+         "depress_drop_prev": 0.6498661041259766,
+         "relearns": true
+        }
+       },
+       "rise_1_avoid_index": 3.253276824951172,
+       "rise_1_avoid_component_hz": -0.38636159896850586,
+       "rise_1": 3.639638900756836,
+       "rise_1_norm": 0.13734841314929894,
+       "n_relearn": 3,
+       "scorable": 3
+      }
+     }
+    },
+    "end_latch": [
+     {
+      "arm": "learn",
+      "phase": "latch",
+      "protocol": "rung_a",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 755,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.35317800350027606,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.086459438006083,
+      "pam_hz_offset": 2.162878178363417,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung_a"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.30287098368381,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0525086323420205,
+      "pam_hz_offset": 2.1707101570327043,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "d",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 322,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.34824558125769484,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.092796206474304,
+      "pam_hz_offset": 2.1615081079643983,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "bidir_timed",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 747,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.19772224602500318,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.2045202453931174,
+      "pam_hz_offset": 2.15572534665975,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_timed"
+     },
+     {
+      "arm": "bidir_depress",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 755,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3119114378868229,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0501404901345572,
+      "pam_hz_offset": 2.1698001983912256,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_depress"
+     }
+    ],
+    "guard": {
+     "rung_a/learn": {
+      "n": 51,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/lesion": {
+      "n": 51,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/reversed": {
+      "n": 51,
+      "max_active_ratio": 1.0007818608287724,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/frozen": {
+      "n": 81,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/shuffle": {
+      "n": 51,
+      "max_active_ratio": 1.001563721657545,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/retain": {
+      "n": 39,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/interfere": {
+      "n": 57,
+      "max_active_ratio": 1.0086004691164974,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/lesion": {
+      "n": 57,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_timed/bidir_timed": {
+      "n": 27,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_depress/bidir_depress": {
+      "n": 27,
+      "max_active_ratio": 1.0093823299452696,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     }
+    },
+    "logs_present": {
+     "rung_a": 695,
+     "rung3": 554,
+     "bidir_timed": 59,
+     "bidir_depress": 59
+    }
+   },
+   "1": {
+    "protocols": {
+     "rung_a": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "test_trial": 30,
+       "baseline_approach_hz": 26.499662399291992,
+       "approach_drop_hz": 15.2420654296875,
+       "norm_approach_drop": 0.5751796079520897,
+       "threshold_norm": 0.48573175568171784,
+       "lesion_norm_approach_drop": 0.0,
+       "shuffle_norm_approach_drop": 0.016241460457460007,
+       "d_approach_drop_hz": 0.8947944641113281,
+       "reversed_d_approach_drop_hz": 14.667600631713867,
+       "dc2_avoid_index_shift": 16.012244701385498,
+       "dc2_avoid_component_shift_hz": 0.770179271697998,
+       "lesion_dc2_avoid_index_shift": 0.0,
+       "shuffle_dc2_avoid_index_shift": 0.43706512451171875,
+       "d_avoid_index_shift": 1.0040454864501953,
+       "da1_avoid_index_shift": 0.2167518138885498,
+       "reversed_d_avoid_index_shift": 15.941993713378906,
+       "shifts": {
+        "learn": {
+         "dc2": 16.012244701385498,
+         "d": 1.0040454864501953,
+         "da1": 0.2167518138885498
+        },
+        "lesion": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "reversed": {
+         "dc2": 0.9020366668701172,
+         "d": 15.941993713378906,
+         "da1": 0.22748327255249023
+        },
+        "frozen": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "shuffle": {
+         "dc2": 0.43706512451171875,
+         "d": 0.5665359497070312,
+         "da1": 0.15559077262878418
+        }
+       },
+       "w_mean_frac": -0.020174037665128708,
+       "w_mean_frac_ref": -0.01972440108656883
+      }
+     },
+     "rung3": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "trained_d_approach_drop_hz": 14.20397663116455,
+       "naive_d_approach_drop_hz": 14.667600631713867,
+       "baseline_approach_d_hz": 24.852108001708984,
+       "naive_norm_approach_drop": 0.5901954325446047,
+       "ratio": 0.9683912855149,
+       "ref_ratio": 0.8581447846590077,
+       "threshold_ratio": 0.42907239232950384,
+       "naive_min_norm": 0.4673469372840918,
+       "trained_d_avoid_index_shift": 15.482954978942871,
+       "trained_d_avoid_component_shift_hz": 1.2789788246154785,
+       "naive_d_avoid_index_shift": 15.941993713378906,
+       "naive_d_avoid_component_shift_hz": 1.2743926048278809,
+       "w_mean_frac": -0.029777539893984795,
+       "w_mean_frac_ref": -0.027911025285720825
+      }
+     },
+     "bidir": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING",
+      "passed": false,
+      "numbers": {
+       "f1_min_rise_norm": 0.48573175568171784,
+       "baseline_approach_hz": 26.499662399291992,
+       "w_mean_frac": -0.030075663700699806,
+       "w_mean_frac_ref": -0.01972440108656883,
+       "cycles": {
+        "2": {
+         "rise": 5.029582977294922,
+         "timed_drop_prev": 0.5830020904541016,
+         "depress_drop_prev": 0.21384620666503906,
+         "relearns": true
+        },
+        "3": {
+         "rise": 4.322664260864258,
+         "timed_drop_prev": 1.4710407257080078,
+         "depress_drop_prev": 0.4507713317871094,
+         "relearns": true
+        },
+        "4": {
+         "rise": 4.208822250366211,
+         "timed_drop_prev": 1.8776168823242188,
+         "depress_drop_prev": 0.6498966217041016,
+         "relearns": true
+        }
+       },
+       "rise_1_avoid_index": 3.24554443359375,
+       "rise_1_avoid_component_hz": -0.40342235565185547,
+       "rise_1": 3.648967742919922,
+       "rise_1_norm": 0.13769865019176294,
+       "n_relearn": 3,
+       "scorable": 3
+      }
+     }
+    },
+    "end_latch": [
+     {
+      "arm": "learn",
+      "phase": "latch",
+      "protocol": "rung_a",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3531857815325922,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0738921960194907,
+      "pam_hz_offset": 2.218705577721231,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung_a"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3028774823742632,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0388750632603965,
+      "pam_hz_offset": 2.227157290406064,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "d",
+      "when": "end",
+      "n_latched": 757,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 322,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.34820802541359713,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0796165267626443,
+      "pam_hz_offset": 2.2173923751527402,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "bidir_timed",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 744,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.19819794566739493,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.1957116226355233,
+      "pam_hz_offset": 2.211569994445344,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_timed"
+     },
+     {
+      "arm": "bidir_depress",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 755,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.31191034422042696,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0365621050198874,
+      "pam_hz_offset": 2.22619328429431,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_depress"
+     }
+    ],
+    "guard": {
+     "rung_a/learn": {
+      "n": 51,
+      "max_active_ratio": 1.0062451209992194,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/lesion": {
+      "n": 51,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/reversed": {
+      "n": 51,
+      "max_active_ratio": 1.0007806401249022,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/frozen": {
+      "n": 81,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/shuffle": {
+      "n": 51,
+      "max_active_ratio": 1.0015612802498046,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/retain": {
+      "n": 39,
+      "max_active_ratio": 1.0062451209992194,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/interfere": {
+      "n": 57,
+      "max_active_ratio": 1.0070257611241218,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/lesion": {
+      "n": 57,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_timed/bidir_timed": {
+      "n": 27,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_depress/bidir_depress": {
+      "n": 27,
+      "max_active_ratio": 1.007806401249024,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     }
+    },
+    "logs_present": {
+     "rung_a": 695,
+     "rung3": 554,
+     "bidir_timed": 59,
+     "bidir_depress": 59
+    }
+   },
+   "2": {
+    "protocols": {
+     "rung_a": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "test_trial": 30,
+       "baseline_approach_hz": 26.4986572265625,
+       "approach_drop_hz": 15.241909980773926,
+       "norm_approach_drop": 0.5751955599280439,
+       "threshold_norm": 0.48573175568171784,
+       "lesion_norm_approach_drop": 0.0,
+       "shuffle_norm_approach_drop": 0.016242220502402375,
+       "d_approach_drop_hz": 0.8946628570556641,
+       "reversed_d_approach_drop_hz": 14.666963577270508,
+       "dc2_avoid_index_shift": 16.01274347305298,
+       "dc2_avoid_component_shift_hz": 0.7708325386047363,
+       "lesion_dc2_avoid_index_shift": 0.0,
+       "shuffle_dc2_avoid_index_shift": 0.43707275390625,
+       "d_avoid_index_shift": 0.9973926544189453,
+       "da1_avoid_index_shift": 0.2167518138885498,
+       "reversed_d_avoid_index_shift": 15.944343566894531,
+       "shifts": {
+        "learn": {
+         "dc2": 16.01274347305298,
+         "d": 0.9973926544189453,
+         "da1": 0.2167518138885498
+        },
+        "lesion": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "reversed": {
+         "dc2": 0.9020843505859375,
+         "d": 15.944343566894531,
+         "da1": 0.22748327255249023
+        },
+        "frozen": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "shuffle": {
+         "dc2": 0.43707275390625,
+         "d": 0.5658493041992188,
+         "da1": 0.15559077262878418
+        }
+       },
+       "w_mean_frac": -0.0201713927090168,
+       "w_mean_frac_ref": -0.01972440108656883
+      }
+     },
+     "rung3": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "trained_d_approach_drop_hz": 14.203357696533203,
+       "naive_d_approach_drop_hz": 14.666963577270508,
+       "baseline_approach_d_hz": 24.851533889770508,
+       "naive_norm_approach_drop": 0.5901834326334192,
+       "ratio": 0.968391148018138,
+       "ref_ratio": 0.8581447846590077,
+       "threshold_ratio": 0.42907239232950384,
+       "naive_min_norm": 0.4673469372840918,
+       "trained_d_avoid_index_shift": 15.491273880004883,
+       "trained_d_avoid_component_shift_hz": 1.2879157066345215,
+       "naive_d_avoid_index_shift": 15.944343566894531,
+       "naive_d_avoid_component_shift_hz": 1.2773795127868652,
+       "w_mean_frac": -0.029769036918878555,
+       "w_mean_frac_ref": -0.027911025285720825
+      }
+     },
+     "bidir": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING",
+      "passed": false,
+      "numbers": {
+       "f1_min_rise_norm": 0.48573175568171784,
+       "baseline_approach_hz": 26.4986572265625,
+       "w_mean_frac": -0.029865004122257233,
+       "w_mean_frac_ref": -0.01972440108656883,
+       "cycles": {
+        "2": {
+         "rise": 4.996944427490234,
+         "timed_drop_prev": 0.588714599609375,
+         "depress_drop_prev": 0.2138214111328125,
+         "relearns": true
+        },
+        "3": {
+         "rise": 4.339550971984863,
+         "timed_drop_prev": 1.4269466400146484,
+         "depress_drop_prev": 0.45076751708984375,
+         "relearns": true
+        },
+        "4": {
+         "rise": 4.2060651779174805,
+         "timed_drop_prev": 1.878403663635254,
+         "depress_drop_prev": 0.6498813629150391,
+         "relearns": true
+        }
+       },
+       "rise_1_avoid_index": 3.2501373291015625,
+       "rise_1_avoid_component_hz": -0.3912620544433594,
+       "rise_1": 3.641399383544922,
+       "rise_1_norm": 0.13741826057113374,
+       "n_relearn": 3,
+       "scorable": 3
+      }
+     }
+    },
+    "end_latch": [
+     {
+      "arm": "learn",
+      "phase": "latch",
+      "protocol": "rung_a",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 754,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3532017257070456,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.083764066298803,
+      "pam_hz_offset": 2.1550488377639154,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung_a"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3028859515040648,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.049869487682978,
+      "pam_hz_offset": 2.163113197061485,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "d",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 322,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.34823924005371515,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.090318441390991,
+      "pam_hz_offset": 2.15356019659253,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "bidir_timed",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 747,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.19801213227673564,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.202030658721924,
+      "pam_hz_offset": 2.147558201392597,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_timed"
+     },
+     {
+      "arm": "bidir_depress",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 755,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3119253778084292,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.0475852390130362,
+      "pam_hz_offset": 2.1622080527661605,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_depress"
+     }
+    ],
+    "guard": {
+     "rung_a/learn": {
+      "n": 51,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/lesion": {
+      "n": 51,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/reversed": {
+      "n": 51,
+      "max_active_ratio": 1.0007818608287724,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/frozen": {
+      "n": 81,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/shuffle": {
+      "n": 51,
+      "max_active_ratio": 1.001563721657545,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/retain": {
+      "n": 39,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/interfere": {
+      "n": 57,
+      "max_active_ratio": 1.0086004691164974,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/lesion": {
+      "n": 57,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_timed/bidir_timed": {
+      "n": 27,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_depress/bidir_depress": {
+      "n": 27,
+      "max_active_ratio": 1.0093823299452696,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     }
+    },
+    "logs_present": {
+     "rung_a": 695,
+     "rung3": 554,
+     "bidir_timed": 59,
+     "bidir_depress": 59
+    }
+   },
+   "3": {
+    "protocols": {
+     "rung_a": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "test_trial": 30,
+       "baseline_approach_hz": 26.499088287353516,
+       "approach_drop_hz": 15.240291595458984,
+       "norm_approach_drop": 0.5751251299740865,
+       "threshold_norm": 0.48573175568171784,
+       "lesion_norm_approach_drop": 0.0,
+       "shuffle_norm_approach_drop": 0.0162407326658871,
+       "d_approach_drop_hz": 0.8939933776855469,
+       "reversed_d_approach_drop_hz": 14.665620803833008,
+       "dc2_avoid_index_shift": 16.019207000732422,
+       "dc2_avoid_component_shift_hz": 0.7789149284362793,
+       "lesion_dc2_avoid_index_shift": 0.0,
+       "shuffle_dc2_avoid_index_shift": 0.4370899200439453,
+       "d_avoid_index_shift": 0.9849014282226562,
+       "da1_avoid_index_shift": 0.2167518138885498,
+       "reversed_d_avoid_index_shift": 15.96569299697876,
+       "shifts": {
+        "learn": {
+         "dc2": 16.019207000732422,
+         "d": 0.9849014282226562,
+         "da1": 0.2167518138885498
+        },
+        "lesion": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "reversed": {
+         "dc2": 0.9021530151367188,
+         "d": 15.96569299697876,
+         "da1": 0.22748327255249023
+        },
+        "frozen": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "shuffle": {
+         "dc2": 0.4370899200439453,
+         "d": 0.5670928955078125,
+         "da1": 0.15559077262878418
+        }
+       },
+       "w_mean_frac": -0.020140768960118294,
+       "w_mean_frac_ref": -0.01972440108656883
+      }
+     },
+     "rung3": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "trained_d_approach_drop_hz": 14.202589988708496,
+       "naive_d_approach_drop_hz": 14.665620803833008,
+       "baseline_approach_d_hz": 24.851314544677734,
+       "naive_norm_approach_drop": 0.5901346094777856,
+       "ratio": 0.9684274657501376,
+       "ref_ratio": 0.8581447846590077,
+       "threshold_ratio": 0.42907239232950384,
+       "naive_min_norm": 0.4673469372840918,
+       "trained_d_avoid_index_shift": 15.524079322814941,
+       "trained_d_avoid_component_shift_hz": 1.321488857269287,
+       "naive_d_avoid_index_shift": 15.96569299697876,
+       "naive_d_avoid_component_shift_hz": 1.300072193145752,
+       "w_mean_frac": -0.029712442308664322,
+       "w_mean_frac_ref": -0.027911025285720825
+      }
+     },
+     "bidir": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING",
+      "passed": false,
+      "numbers": {
+       "f1_min_rise_norm": 0.48573175568171784,
+       "baseline_approach_hz": 26.499088287353516,
+       "w_mean_frac": -0.029342111200094223,
+       "w_mean_frac_ref": -0.01972440108656883,
+       "cycles": {
+        "2": {
+         "rise": 4.864999771118164,
+         "timed_drop_prev": 0.5973949432373047,
+         "depress_drop_prev": 0.21380615234375,
+         "relearns": true
+        },
+        "3": {
+         "rise": 4.445237159729004,
+         "timed_drop_prev": 1.2461109161376953,
+         "depress_drop_prev": 0.4507102966308594,
+         "relearns": true
+        },
+        "4": {
+         "rise": 4.201769828796387,
+         "timed_drop_prev": 1.856247901916504,
+         "depress_drop_prev": 0.6498050689697266,
+         "relearns": true
+        }
+       },
+       "rise_1_avoid_index": 3.278715133666992,
+       "rise_1_avoid_component_hz": -0.34392309188842773,
+       "rise_1": 3.622638702392578,
+       "rise_1_norm": 0.1367080505981579,
+       "n_relearn": 3,
+       "scorable": 3
+      }
+     }
+    },
+    "end_latch": [
+     {
+      "arm": "learn",
+      "phase": "latch",
+      "protocol": "rung_a",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 754,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.353159530888594,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 42,
+      "ppl1_hz_offset": 3.1273479759693146,
+      "pam_hz_offset": 2.0219758295087016,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung_a"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 758,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3028539081296926,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 43,
+      "ppl1_hz_offset": 3.0954343577226004,
+      "pam_hz_offset": 2.028807541613349,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "d",
+      "when": "end",
+      "n_latched": 755,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 322,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.34830931278727795,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 42,
+      "ppl1_hz_offset": 3.134774218002955,
+      "pam_hz_offset": 2.0205590745331024,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "bidir_timed",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 751,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.19571502659978604,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 42,
+      "ppl1_hz_offset": 3.2420790692170462,
+      "pam_hz_offset": 2.015369103150025,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_timed"
+     },
+     {
+      "arm": "bidir_depress",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 757,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.311925744589197,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 43,
+      "ppl1_hz_offset": 3.093159248431524,
+      "pam_hz_offset": 2.0280273599513725,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_depress"
+     }
+    ],
+    "guard": {
+     "rung_a/learn": {
+      "n": 51,
+      "max_active_ratio": 1.00546875,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/lesion": {
+      "n": 51,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/reversed": {
+      "n": 51,
+      "max_active_ratio": 1.00078125,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/frozen": {
+      "n": 81,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/shuffle": {
+      "n": 51,
+      "max_active_ratio": 1.0023255813953487,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/retain": {
+      "n": 39,
+      "max_active_ratio": 1.00546875,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/interfere": {
+      "n": 57,
+      "max_active_ratio": 1.00625,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/lesion": {
+      "n": 57,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_timed/bidir_timed": {
+      "n": 27,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_depress/bidir_depress": {
+      "n": 27,
+      "max_active_ratio": 1.0078125,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     }
+    },
+    "logs_present": {
+     "rung_a": 695,
+     "rung3": 554,
+     "bidir_timed": 59,
+     "bidir_depress": 59
+    }
+   },
+   "4": {
+    "protocols": {
+     "rung_a": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "test_trial": 30,
+       "baseline_approach_hz": 26.498825073242188,
+       "approach_drop_hz": 15.24184513092041,
+       "norm_approach_drop": 0.5751894692988189,
+       "threshold_norm": 0.48573175568171784,
+       "lesion_norm_approach_drop": 0.0,
+       "shuffle_norm_approach_drop": 0.016242477515321367,
+       "d_approach_drop_hz": 0.8943271636962891,
+       "reversed_d_approach_drop_hz": 14.666563987731934,
+       "dc2_avoid_index_shift": 16.013023376464844,
+       "dc2_avoid_component_shift_hz": 0.7711782455444336,
+       "lesion_dc2_avoid_index_shift": 0.0,
+       "shuffle_dc2_avoid_index_shift": 0.43707847595214844,
+       "d_avoid_index_shift": 0.9850921630859375,
+       "da1_avoid_index_shift": 0.2167518138885498,
+       "reversed_d_avoid_index_shift": 15.943543434143066,
+       "shifts": {
+        "learn": {
+         "dc2": 16.013023376464844,
+         "d": 0.9850921630859375,
+         "da1": 0.2167518138885498
+        },
+        "lesion": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "reversed": {
+         "dc2": 0.9021167755126953,
+         "d": 15.943543434143066,
+         "da1": 0.22748327255249023
+        },
+        "frozen": {
+         "dc2": 0.0,
+         "d": 0.0,
+         "da1": 0.0
+        },
+        "shuffle": {
+         "dc2": 0.43707847595214844,
+         "d": 0.5660152435302734,
+         "da1": 0.15559077262878418
+        }
+       },
+       "w_mean_frac": -0.020169850438833237,
+       "w_mean_frac_ref": -0.01972440108656883
+      }
+     },
+     "rung3": {
+      "label": "PASS",
+      "diagnostic": null,
+      "passed": true,
+      "numbers": {
+       "trained_d_approach_drop_hz": 14.203131675720215,
+       "naive_d_approach_drop_hz": 14.666563987731934,
+       "baseline_approach_d_hz": 24.851879119873047,
+       "naive_norm_approach_drop": 0.5901591552488952,
+       "ratio": 0.9684021211512551,
+       "ref_ratio": 0.8581447846590077,
+       "threshold_ratio": 0.42907239232950384,
+       "naive_min_norm": 0.4673469372840918,
+       "trained_d_avoid_index_shift": 15.501054286956787,
+       "trained_d_avoid_component_shift_hz": 1.2979216575622559,
+       "naive_d_avoid_index_shift": 15.943543434143066,
+       "naive_d_avoid_component_shift_hz": 1.2769784927368164,
+       "w_mean_frac": -0.02977255918085575,
+       "w_mean_frac_ref": -0.027911025285720825
+      }
+     },
+     "bidir": {
+      "label": "FAIL",
+      "diagnostic": "NEEDS-SPIKING",
+      "passed": false,
+      "numbers": {
+       "f1_min_rise_norm": 0.48573175568171784,
+       "baseline_approach_hz": 26.498825073242188,
+       "w_mean_frac": -0.02986888773739338,
+       "w_mean_frac_ref": -0.01972440108656883,
+       "cycles": {
+        "2": {
+         "rise": 5.004978179931641,
+         "timed_drop_prev": 0.5856552124023438,
+         "depress_drop_prev": 0.21379661560058594,
+         "relearns": true
+        },
+        "3": {
+         "rise": 4.355252265930176,
+         "timed_drop_prev": 1.412607192993164,
+         "depress_drop_prev": 0.4507598876953125,
+         "relearns": true
+        },
+        "4": {
+         "rise": 4.2083740234375,
+         "timed_drop_prev": 1.8655729293823242,
+         "depress_drop_prev": 0.6498870849609375,
+         "relearns": true
+        }
+       },
+       "rise_1_avoid_index": 3.250732421875,
+       "rise_1_avoid_component_hz": -0.3920769691467285,
+       "rise_1": 3.6428089141845703,
+       "rise_1_norm": 0.13747058234151605,
+       "n_relearn": 3,
+       "scorable": 3
+      }
+     }
+    },
+    "end_latch": [
+     {
+      "arm": "learn",
+      "phase": "latch",
+      "protocol": "rung_a",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 756,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.35332601990189577,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.1134473284085593,
+      "pam_hz_offset": 2.1376873171358923,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung_a"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 759,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3029636997287676,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.079711844523748,
+      "pam_hz_offset": 2.1463788136823183,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "interfere",
+      "phase": "latch",
+      "protocol": "rung3",
+      "song": "d",
+      "when": "end",
+      "n_latched": 757,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 322,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.34833415348236646,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.1201534966627755,
+      "pam_hz_offset": 2.136088978503535,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "rung3"
+     },
+     {
+      "arm": "bidir_timed",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 748,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.19710987116403078,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 43,
+      "ppl1_hz_offset": 3.2333120703697205,
+      "pam_hz_offset": 2.1299197050933922,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_timed"
+     },
+     {
+      "arm": "bidir_depress",
+      "phase": "latch",
+      "protocol": "bidir",
+      "song": "dc2",
+      "when": "end",
+      "n_latched": 759,
+      "n_latched_kc_paired": 0,
+      "n_kc_paired": 332,
+      "n_latched_mbon_approach": 6,
+      "n_latched_mbon_avoid": 6,
+      "approach_latched_rate_frac": 0.3120063263094267,
+      "n_latched_ppl1": 4,
+      "n_latched_pam": 44,
+      "ppl1_hz_offset": 3.077542334794998,
+      "pam_hz_offset": 2.1454042961581306,
+      "latched": false,
+      "off_ms": 200.0,
+      "win_ms": 100.0,
+      "log": "bidir_depress"
+     }
+    ],
+    "guard": {
+     "rung_a/learn": {
+      "n": 51,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/lesion": {
+      "n": 51,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/reversed": {
+      "n": 51,
+      "max_active_ratio": 1.0007818608287724,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/frozen": {
+      "n": 81,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung_a/shuffle": {
+      "n": 51,
+      "max_active_ratio": 1.001563721657545,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/retain": {
+      "n": 39,
+      "max_active_ratio": 1.0078186082877247,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/interfere": {
+      "n": 57,
+      "max_active_ratio": 1.0086004691164974,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "rung3/lesion": {
+      "n": 57,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_timed/bidir_timed": {
+      "n": 27,
+      "max_active_ratio": 1.0,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     },
+     "bidir_depress/bidir_depress": {
+      "n": 27,
+      "max_active_ratio": 1.0093823299452696,
+      "min_mbon06_ratio": null,
+      "max_mbon06_ratio": null,
+      "breaches": 0,
+      "aborted": false
+     }
+    },
+    "logs_present": {
+     "rung_a": 695,
+     "rung3": 554,
+     "bidir_timed": 59,
+     "bidir_depress": 59
+    }
+   }
+  }
+ }
+}

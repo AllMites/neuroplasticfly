@@ -1,0 +1,78 @@
+[gpu_slot] slot1.lock acquired
+cap   2.000 seed 0: 400 iters  1003 s  F False  H False  loss 4.5000
+cap   2.000 seed 1: 400 iters   961 s  F False  H False  loss 4.5000
+cap   2.000 seed 2: 400 iters   924 s  F False  H False  loss 4.5000
+cap   2.000 seed 3: 400 iters   925 s  F False  H False  loss 4.5000
+cap   2.000 seed 4: 400 iters   924 s  F False  H False  loss 4.5000
+cap   4.000 seed 0: 400 iters   923 s  F False  H False  loss 0.3390
+cap   4.000 seed 1: 400 iters   924 s  F False  H False  loss 0.3544
+cap   4.000 seed 2: 400 iters   924 s  F False  H False  loss 0.3517
+cap   4.000 seed 3: 400 iters   945 s  F False  H False  loss 0.4650
+cap   4.000 seed 4: 400 iters   952 s  F False  H False  loss 0.3439
+cap   8.000 seed 0:  32 iters    79 s  F True  H False  loss 0.2248
+cap   8.000 seed 1:  25 iters    61 s  F True  H False  loss 0.1629
+cap   8.000 seed 2:  27 iters    67 s  F True  H False  loss 0.1962
+cap   8.000 seed 3:  36 iters    88 s  F True  H False  loss 0.1131
+cap   8.000 seed 4:  30 iters    76 s  F True  H False  loss 0.1619
+cap  16.000 seed 0:  23 iters    58 s  F True  H False  loss 0.1113
+cap  16.000 seed 1:  39 iters    95 s  F True  H False  loss 0.0924
+cap  16.000 seed 2:  27 iters    68 s  F True  H False  loss 0.1747
+cap  16.000 seed 3:  26 iters    65 s  F True  H False  loss 0.1635
+cap  16.000 seed 4:  29 iters    72 s  F True  H False  loss 0.0754
+cap  18.287 seed 0:  22 iters    42 s  F True  H False  loss 0.2183
+cap  18.287 seed 1:  36 iters    42 s  F True  H False  loss 0.1804
+cap  18.287 seed 2:  31 iters    37 s  F True  H False  loss 0.0645
+cap  18.287 seed 3:  29 iters    34 s  F True  H False  loss 0.0465
+cap  18.287 seed 4:  30 iters    35 s  F True  H False  loss 0.2263
+cap  32.000 seed 0:  22 iters    27 s  F True  H False  loss 0.2333
+cap  32.000 seed 1:  25 iters    30 s  F True  H False  loss 0.0979
+cap  32.000 seed 2:  27 iters    32 s  F True  H False  loss 0.0250
+cap  32.000 seed 3:  30 iters    35 s  F True  H False  loss 0.0989
+cap  32.000 seed 4:  27 iters    32 s  F True  H False  loss 0.0450
+cap  64.000 seed 0: 347 iters   382 s  F True  H False  loss 0.1212
+cap  64.000 seed 1:  24 iters    29 s  F True  H False  loss 0.0317
+cap  64.000 seed 2:  30 iters    35 s  F True  H False  loss 0.1188
+cap  64.000 seed 3:  22 iters    27 s  F True  H False  loss 0.1707
+cap  64.000 seed 4:  26 iters    31 s  F True  H False  loss 0.2383
+cap 128.000 seed 0:  35 iters    41 s  F True  H False  loss 0.1566
+cap 128.000 seed 1:  43 iters    50 s  F True  H False  loss 0.2413
+cap 128.000 seed 2:  22 iters    27 s  F True  H False  loss 0.2044
+cap 128.000 seed 3:  22 iters    27 s  F True  H False  loss 0.0243
+cap 128.000 seed 4:  23 iters    28 s  F True  H False  loss 0.0060
+cap 256.000 seed 0:  32 iters    37 s  F True  H False  loss 0.0790
+cap 256.000 seed 1:  22 iters    27 s  F True  H False  loss 0.0168
+cap 256.000 seed 2:  22 iters    27 s  F True  H False  loss 0.1748
+cap 256.000 seed 3:  21 iters    26 s  F True  H False  loss 0.2209
+cap 256.000 seed 4:  22 iters    27 s  F True  H False  loss 0.2148
+{
+ "prereg": "PREREGISTER_rate_chunk1_pass2_loops.md @ 0f0b2f7 (PASS2, POST-HOC)",
+ "g_star": 8.0,
+ "held_out_seeds": 0,
+ "label": "FIT-NO-TRANSFER",
+ "failing_rows": [
+  "H1",
+  "H2",
+  "H4",
+  "H6"
+ ],
+ "n_active": 928,
+ "rho_median": 0.4193749415876245,
+ "qualifier": "INCONSISTENT",
+ "max_fox_x_r_product": [
+  25.717441131737303,
+  [
+   "CB0525",
+   "CB0272",
+   "PAM01"
+  ]
+ ]
+}
+cap 2.0     F-pass 0/5  H-pass(of F) 0  iters [400, 400, 400, 400, 400]
+cap 4.0     F-pass 0/5  H-pass(of F) 0  iters [400, 400, 400, 400, 400]
+cap 8.0     F-pass 5/5  H-pass(of F) 0  iters [32, 25, 27, 36, 30]
+cap 16.0    F-pass 5/5  H-pass(of F) 0  iters [23, 39, 27, 26, 29]
+cap 18.287  F-pass 5/5  H-pass(of F) 0  iters [22, 36, 31, 29, 30]
+cap 32.0    F-pass 5/5  H-pass(of F) 0  iters [22, 25, 27, 30, 27]
+cap 64.0    F-pass 5/5  H-pass(of F) 0  iters [347, 24, 30, 22, 26]
+cap 128.0   F-pass 5/5  H-pass(of F) 0  iters [35, 43, 22, 22, 23]
+cap 256.0   F-pass 5/5  H-pass(of F) 0  iters [32, 22, 22, 21, 22]

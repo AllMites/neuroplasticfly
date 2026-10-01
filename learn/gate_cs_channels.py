@@ -7,7 +7,7 @@ passed with a reinterpreted criterion. The criterion was narrowed in advance to
 measured on those channels alone.
 
 The chosen channels are **DC2 and D**, with DA1 measured alongside but NOT used
-as a CS. project-plan decision 2026-09-20: DA1 is the cVA pheromone glomerulus
+as a CS. reel-5 PRD decision 2026-09-20: DA1 is the cVA pheromone glomerulus
 (Or67d; Kurtovic, Widmer & Dickson 2007), cVA carries innate valence, so a shift
 on DA1 could be innate rather than learned and the shuffle arm would not
 separate the two. DA1 is reported here so the never-paired probe channel is
@@ -62,7 +62,20 @@ def main():
     G.KC_V_TH_DELTA = 0.0
     G.PN_KC_GAIN = a.gain
     print("gating at PN_KC_GAIN = %.1f" % a.gain)
+    # compile_=False: the regime constants are read inside the step loop and a
+    # compiled graph bakes the previous value in.
+    sim = G.GpuSim(compile_=False)
+    res = measure(sim, info, a.gain)
+    out = OUT_FMT % ("%g" % a.gain)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    json.dump(res, open(out, "w", encoding="utf-8"), indent=1)
+    print("wrote %s" % out)
+    return 0 if res["pass"] else 1
 
+
+def measure(sim, info, gain):
+    """The gate measurement on an already-built sim (ELN_NEGATE + PN_KC_GAIN baked in by
+    the caller). Importable so the W_SYN grid harness reuses it unchanged (F2)."""
     meta = np.load(os.path.join(_HERE, "data", "neuron_meta.npz"), allow_pickle=False)
     ct = meta["cell_type"].astype(str)
     cc = meta["cell_class"].astype(str)
@@ -72,9 +85,6 @@ def main():
     apl = np.char.startswith(ct, "APL")
     central = meta["super_class"].astype(str) == "central"
 
-    # compile_=False: the regime constants are read inside the step loop and a
-    # compiled graph bakes the previous value in.
-    sim = G.GpuSim(compile_=False)
     drives = []
     for c in CS + info:
         idx = np.flatnonzero(ct == c).astype(np.int64)
@@ -111,7 +121,7 @@ def main():
                     "apl_hz": float(hz[i][apl].mean()),
                     "central_active_frac": float((hz[i][central] > 1).mean())})
 
-    res = {"regime": {"ELN_NEGATE": True, "PN_KC_GAIN": a.gain, "KC_V_TH_DELTA": 0.0,
+    res = {"regime": {"ELN_NEGATE": True, "PN_KC_GAIN": gain, "KC_V_TH_DELTA": 0.0,
                       "orn_hz": ORN_HZ, "t_run_ms": T_RUN},
            "cs": CS, "probe_only": info,
            "channels": per, "n_silent": n_silent,
@@ -154,12 +164,7 @@ def main():
         print("  %-16s %s" % (k, "PASS" if v else "FAIL"))
     print("GATE: %s" % ("PASS - proceed to conditioning"
                         if res["pass"] else "FAIL - stop, do not tune"))
-
-    out = OUT_FMT % ("%g" % a.gain)
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    json.dump(res, open(out, "w", encoding="utf-8"), indent=1)
-    print("wrote %s" % out)
-    return 0 if res["pass"] else 1
+    return res
 
 
 if __name__ == "__main__":

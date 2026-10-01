@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below. If you use its results, please also cite the preprint under preferred-citation."
-title: "neuroplasticfly: dopamine-gated plasticity on a whole-brain FlyWire v783 LIF simulation"
+title: "neuroplasticfly: dopamine-gated plasticity on a whole-brain FlyWire v783 model, with spiking and rate neurons"
 authors:
   - family-names: Asis
     given-names: Daniel
@@ -9,8 +9,8 @@ authors:
     email: "danielasis.research@gmail.com"
 repository-code: "https://github.com/AllMites/neuroplasticfly"
 license: MIT
-date-released: "2026-09-26"
-version: 0.1.0
+date-released: "2026-10-02"
+version: 0.2.0
 preferred-citation:
   type: article
   title: "Specific, cumulative and reversible odour learning in a whole-brain connectome model of Drosophila"
@@ -25,3 +25,13 @@ preferred-citation:
   url: "https://doi.org/10.5281/zenodo.23017031"
   year: 2026
   notes: "Preprint."
+references:
+  - type: article
+    title: "Is it the neuron or the wiring? Swapping spiking for rate neurons in a whole-brain model of the fly"
+    authors:
+      - family-names: Asis
+        given-names: Daniel
+        affiliation: "Independent Researcher"
+        orcid: "https://orcid.org/0009-0009-1456-5276"
+    year: 2026
+    notes: "Preprint (paper 1); the rate model, its preregistrations and results in this release. DOI to be added on posting."

@@ -1,7 +1,7 @@
 """Conditioning protocol on the whole-brain fly. Two CS modes.
 
 --cs song (default, unchanged): one trial = 300 ms run_batch with song JO drive
-(gain 3, as in the song-drive runs) + song KC fingerprint (authored) + optional US.
+(gain 3, as reel 3) + song KC fingerprint (authored) + optional US.
 
 --cs odour: the CS is a single ORN channel at 80 Hz through the real antennal
 lobe - no graft, no authored KC fingerprint. CS pair DC2 + D (not DA1, which is
@@ -38,14 +38,14 @@ import gpu_sim as G
 from learn import fingerprint as F
 from learn import plastic as PL
 
-SONGS = {   # name: (wav, offset s)  -- same clips as the song-drive runs
+SONGS = {   # name: (wav, offset s)  -- same clips as reel 3 (HANDOFF-reel3.md)
     "misery": ("flywatch/raw/misery.wav", 0.0),
     "skyhigh": ("flywatch/raw/skyhigh.wav", 55.0),
     "mozart": ("flywatch/raw/mozart.wav", 85.0),
 }
 # Odour CS: one ORN channel each, driven at ORN_HZ through the real AL.
 #
-# The CS pair is DC2 + D, NOT DA1, per the project-plan decision of 2026-09-20:
+# The CS pair is DC2 + D, NOT DA1, per the reel-5 PRD decision of 2026-09-20:
 # DA1 is the cVA pheromone glomerulus (Or67d; Kurtovic, Widmer & Dickson 2007).
 # cVA carries innate valence and drives approach/avoidance without learning, so
 # a shift on DA1 could be innate rather than learned and the shuffle arm would
@@ -270,6 +270,10 @@ def main():
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--seed0", type=int, default=0, help="offsets every trial seed; v1 used 0")
     ap.add_argument("--dump", action="store_true", help="save probe rate vectors to results/rates_<state>/")
+    ap.add_argument("--w-syn", type=float, default=None,
+                    help="override gpu_sim.W_SYN (mV/synapse) before GpuSim(); default None = "
+                         "untouched (0.275). W_SYN x min_syn grid H3 (PREREGISTER_wsyn_grid.md). "
+                         "The brain (min_syn) comes from FLYCHESS_BRAIN.")
     a = ap.parse_args()
     out_json = os.path.join(RESULTS, "condition_%s.json" % a.state)
     if a.check:
@@ -283,7 +287,18 @@ def main():
     G.ELN_NEGATE, G.PN_KC_GAIN = REGIMES[a.regime]
     print("cs %s, regime %s (ELN_NEGATE=%s PN_KC_GAIN=%.1f), probes %s"
           % (a.cs, a.regime, G.ELN_NEGATE, G.PN_KC_GAIN, ",".join(probes)), flush=True)
+    if a.w_syn is not None:
+        G.W_SYN = a.w_syn   # baked into sim.data at construction; Plastic.push reads it too
     sim = G.GpuSim(); P0 = PL.Plastic.real()
+    if os.environ.get("FLYCHESS_PERTURB_WSHA"):   # validation batch (PREREGISTER_validation.md): assert the loaded copy
+        import hashlib
+        _got = hashlib.sha256(np.ascontiguousarray(sim.net.W_data, np.float32).tobytes()).hexdigest()
+        assert _got == os.environ["FLYCHESS_PERTURB_WSHA"], "PERTURBATION HASH MISMATCH %s" % _got
+        print("perturbation hash OK %s" % _got[:12], flush=True)
+    if a.w_syn is not None:
+        assert G.W_SYN == a.w_syn, "W_SYN not applied"
+    print("brain %s min_syn %d n_edges %d W_SYN %.4f"
+          % (G.BRAIN, sim.net.min_syn, sim.net.n_edges, G.W_SYN), flush=True)
     us_path, us_detail = ((a.us_path, None) if a.us_path != "auto"
                           else check_us_path(sim, P0, cs=probes[0]))
     print("US path", us_path, us_detail, flush=True)
@@ -315,7 +330,10 @@ def main():
             print("arm %s done %.0fs" % (name, time.time() - t0), flush=True)
     cv = curves(rows)
     json.dump({"curves": cv, "probes": list(probes), "cs": a.cs, "regime": a.regime,
-               "us_path": us_path, "us_detail": us_detail, "args": vars(a)},
+               "us_path": us_path, "us_detail": us_detail, "args": vars(a),
+               "w_syn": float(G.W_SYN), "min_syn": int(sim.net.min_syn),
+               "n_edges": int(sim.net.n_edges), "brain": os.path.relpath(G.BRAIN, _HERE),
+               "w_sha": os.environ.get("FLYCHESS_PERTURB_WSHA")},
               open(out_json, "w"), indent=1)
     plot(cv, out_json.replace(".json", ".png"))
     print("wrote", out_json)

@@ -1,0 +1,25 @@
+ok --mode rung_a --arm c0 37s
+ok --mode rung3 --arm c0 37s
+ok --mode bidir --rule timed --arm c0 50s
+ok --mode bidir --rule depress --arm c0 48s
+ok --mode rung_a --arm c1 --fit-seed 0 43s
+ok --mode rung3 --arm c1 --fit-seed 0 42s
+ok --mode bidir --rule timed --arm c1 --fit-seed 0 57s
+ok --mode bidir --rule depress --arm c1 --fit-seed 0 55s
+ok --mode rung_a --arm c1 --fit-seed 1 43s
+ok --mode rung3 --arm c1 --fit-seed 1 42s
+ok --mode bidir --rule timed --arm c1 --fit-seed 1 56s
+ok --mode bidir --rule depress --arm c1 --fit-seed 1 63s
+ok --mode rung_a --arm c1 --fit-seed 2 43s
+ok --mode rung3 --arm c1 --fit-seed 2 43s
+ok --mode bidir --rule timed --arm c1 --fit-seed 2 57s
+ok --mode bidir --rule depress --arm c1 --fit-seed 2 55s
+ok --mode rung_a --arm c1 --fit-seed 3 44s
+ok --mode rung3 --arm c1 --fit-seed 3 43s
+ok --mode bidir --rule timed --arm c1 --fit-seed 3 57s
+ok --mode bidir --rule depress --arm c1 --fit-seed 3 60s
+ok --mode rung_a --arm c1 --fit-seed 4 46s
+ok --mode rung3 --arm c1 --fit-seed 4 45s
+ok --mode bidir --rule timed --arm c1 --fit-seed 4 69s
+ok --mode bidir --rule depress --arm c1 --fit-seed 4 78s
+batch wall 1215s
