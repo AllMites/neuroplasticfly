@@ -33,5 +33,9 @@ references:
         given-names: Daniel
         affiliation: "Independent Researcher"
         orcid: "https://orcid.org/0009-0009-1456-5276"
+    publisher:
+      name: "Zenodo"
+    doi: "10.5281/zenodo.23120919"
+    url: "https://doi.org/10.5281/zenodo.23120919"
     year: 2026
-    notes: "Preprint (paper 1); the rate model, its preregistrations and results in this release. DOI to be added on posting."
+    notes: "Preprint (paper 1); the rate model, its preregistrations and results in this release."

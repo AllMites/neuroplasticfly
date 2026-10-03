@@ -91,6 +91,8 @@ python learn/analyze_christie_match.py        # labels, from results/christie_ma
 
 ## Paper 1: is it the neuron or the wiring?
 
+Preprint: [doi:10.5281/zenodo.23120919](https://doi.org/10.5281/zenodo.23120919).
+
 Paper 1 swaps every LIF neuron for a rate neuron calibrated to it, keeps the wiring, and asks which results of the
 spiking model survive. In short: sugar reaches the reward neurons under neither model, while odour learning,
 accumulation and relearning survive; one training block moves the rate model's approach output a third as far.
@@ -214,7 +216,7 @@ reproduce their output array for array.
 
 Paper 0 (odour learning): Asis, D. (2026). Specific, cumulative and reversible odour learning in a whole-brain connectome model of *Drosophila*. Zenodo. [https://doi.org/10.5281/zenodo.23017031](https://doi.org/10.5281/zenodo.23017031)
 
-Paper 1 (neuron model vs wiring): Asis, D. (2026). Is it the neuron or the wiring? Swapping spiking for rate neurons in a whole-brain model of the fly. [Preprint; DOI to be added on posting.]
+Paper 1 (neuron model vs wiring): Asis, D. (2026). Is it the neuron or the wiring? Swapping spiking for rate neurons in a whole-brain model of the fly. Zenodo. [https://doi.org/10.5281/zenodo.23120919](https://doi.org/10.5281/zenodo.23120919)
 
 Software: `CITATION.cff`. Code is MIT (`LICENSE`); figures CC-BY; the connectome is not mine to
 license (see *Data*).
