@@ -1,0 +1,16 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # ponytail: CPU torch + numpy only; tests needing the built brain (data/) wait for a small-graph fixture (#4)
+      - run: pip install numpy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      - run: |
+          python regime/test_reach.py
+          python regime/test_sfa.py
+          python regime/test_weights.py
