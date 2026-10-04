@@ -3,13 +3,13 @@
 Running log for the JOSS AI-usage disclosure (issue #7). Started 2026-10-04; entries before that date are summarised from memory and the commit history.
 
 ## Tools
-- Claude Code (Anthropic), [MODEL VERSIONS: author to confirm]
+- Claude Code (Anthropic), models Claude Opus 5 and 5.5, Claude Sonnet 5 and 5.5, Claude Fable 5 and 5.1
 
 ## Before 2026-10-04 (summary)
-- Code: [AUTHOR TO CONFIRM: share of code written by the AI vs the author, e.g. "most code drafted by Claude Code from the author's specifications; the author reviewed and ran it"]
+- Code: most of the code was written by the AI. The author directed the work and checked the results.
 - Analysis: preregistrations, label rules and analysis scripts drafted with the AI. Rules were committed before data (see PROVENANCE.md).
 - Writing: [AUTHOR TO CONFIRM: how the README and the papers were drafted and edited]
-- Decisions made by the author: [AUTHOR TO CONFIRM: research questions, scope, which results to publish, ...]
+- Decisions made by the author: all research questions, scope, results, methods, which points matter, the claims made, and what is preregistered vs post hoc.
 
 ## Log (from 2026-10-04)
 | Date | Change | AI did | Author did |
