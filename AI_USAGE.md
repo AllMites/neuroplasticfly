@@ -8,7 +8,7 @@ Running log for the JOSS AI-usage disclosure (issue #7). Started 2026-10-04; ent
 ## Before 2026-10-04 (summary)
 - Code: most of the code was written by the AI. The author directed the work and checked the results.
 - Analysis: preregistrations, label rules and analysis scripts drafted with the AI. Rules were committed before data (see PROVENANCE.md).
-- Writing: [AUTHOR TO CONFIRM: how the README and the papers were drafted and edited]
+- Writing: drafted with the AI in the author's voice. The author read over and edited every draft, added personal touches, and gave the direction.
 - Decisions made by the author: all research questions, scope, results, methods, which points matter, the claims made, and what is preregistered vs post hoc.
 
 ## Log (from 2026-10-04)
