@@ -42,5 +42,6 @@ build-backend = "setuptools.build_meta"
 
 # The code stays at the paths PROVENANCE.json hashes; neuroplasticfly/ aliases it (see its docstring).
 [tool.setuptools]
-py-modules = ["gpu_sim", "prereg", "reproduce", "reproduce_paper1"]
-packages = ["neuroplasticfly", "learn", "rate"]
+# reservoir, encode, precompute_gpu: imported lazily by gpu_sim (GpuSim() with no brain argument, warm-up)
+py-modules = ["gpu_sim", "prereg", "reproduce", "reproduce_paper1", "reservoir", "encode", "precompute_gpu"]
+packages = ["neuroplasticfly", "learn", "rate", "regime"]

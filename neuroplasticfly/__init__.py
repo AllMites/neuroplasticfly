@@ -8,6 +8,7 @@ gives them one importable home without moving a byte:
     from neuroplasticfly.learn import plastic  # learn/plastic.py, the plasticity rule
     from neuroplasticfly.rate import engine as rate_engine  # rate/engine.py, the rate model
     from neuroplasticfly import prereg         # prereg.py, preregister/label/verify
+    from neuroplasticfly.regime import locator # regime/locator.py, where a signal is lost
 
 Each name is the same module object as its root-level original (neuroplasticfly.engine is
 gpu_sim), so settings such as engine.PN_KC_GAIN = 8 reach the code that reads them.
@@ -20,7 +21,7 @@ import sys
 
 __version__ = "0.2.0"
 
-_ALIAS = {"engine": "gpu_sim", "learn": "learn", "rate": "rate", "prereg": "prereg"}
+_ALIAS = {"engine": "gpu_sim", "learn": "learn", "rate": "rate", "prereg": "prereg", "regime": "regime"}
 
 
 class _AliasFinder(importlib.abc.MetaPathFinder, importlib.abc.Loader):

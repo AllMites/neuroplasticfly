@@ -22,6 +22,12 @@ assert engine is sys.modules["gpu_sim"] and engine.__spec__.name == "gpu_sim"
 assert plastic is plastic2 is sys.modules["learn.plastic"]
 assert rate_engine is sys.modules["rate.engine"]
 assert prereg.holds([True] * 4 + [False])
+from neuroplasticfly.regime import locator
+assert locator is sys.modules["regime.locator"]
+# gpu_sim imports these lazily; find_spec checks they are installed without importing chess
+import importlib.util
+for m in ("reservoir", "encode", "precompute_gpu"):
+    assert importlib.util.find_spec(m), m + " not installed"
 print("ok", engine.__file__)
 """
 
