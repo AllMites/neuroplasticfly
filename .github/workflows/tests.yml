@@ -9,9 +9,12 @@ jobs:
         with:
           python-version: "3.12"
       # ponytail: CPU torch + numpy only; tests needing the built brain (data/) wait for a small-graph fixture (#4)
-      - run: pip install numpy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      # scipy: rate/engine.py, imported by test_import.py. --no-deps: the package itself, not the CUDA/chess stack
+      - run: pip install numpy scipy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      - run: pip install --no-deps -e .
       - run: |
           python regime/test_reach.py
           python regime/test_sfa.py
           python regime/test_weights.py
           python test_prereg.py
+          python test_import.py
