@@ -58,6 +58,10 @@ rules, weight/reach/adaptation maths, `reproduce_paper1.py --verify` (provenance
 tests that need the built `data/` or a GPU (most of `regime/`, `rate/`, `learn/`) and the end-to-end
 run (`python reproduce.py`) are manual checks on a CUDA machine.
 
+**Docs.** [Install](docs/install.md) (requirements, building `data/`, checking the install),
+[tutorial](docs/tutorial.md) (build the brain, condition an odour, read out MBON and DN rates, run a
+probe, and the limits), [API reference](docs/api.md).
+
 ## What it does
 
 | Result | Number | Where it comes from |

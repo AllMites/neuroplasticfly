@@ -20,6 +20,9 @@ It works on plain numpy arrays, so it runs on CPU without the brain. `simulate()
 one `(stim_idx, stim_prob)` drive per group, every group run at every seed (common random numbers, as
 `regime/probe.py`).
 
+A group with no drive cannot be given as a 0 Hz rate: the engine's `run_batch` refuses any stimulus with a rate
+of 0 or less. Pass an empty pair instead, `(np.empty(0, np.int64), np.empty(0))`, as the tutorial does.
+
 ## Outputs
 
 `locate(stages, x, rules, mean_hz)` returns a dict:
