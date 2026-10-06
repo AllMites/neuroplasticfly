@@ -192,6 +192,7 @@ scripts/              fetch_data, build_data (flypoke loader), build_floor_brain
 gpu_sim.py            the engine: one CSR tensor, LIF step, run_batch
 learn/                conditioning, plasticity rule, CS gate, seed analysis
 regime/               ELN_NEGATE / PN_KC_GAIN regimes, nt_conf, silence tests
+regime/locator.py     signal locator: stimulus groups -> per-stage slope -> preregistered label (docs/probes.md)
 brain_state/          plastic weight deltas + provenance per published run
 docs/superpowers/     the lab notebook: every result above, with its falsifiers
 ```
