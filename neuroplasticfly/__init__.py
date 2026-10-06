@@ -19,7 +19,7 @@ import importlib.abc
 import importlib.util
 import sys
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 _ALIAS = {"engine": "gpu_sim", "learn": "learn", "rate": "rate", "prereg": "prereg", "regime": "regime"}
 

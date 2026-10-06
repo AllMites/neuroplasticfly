@@ -23,3 +23,4 @@ Running log for the JOSS AI-usage disclosure (issue #7). Started 2026-10-04; ent
 | 2026-10-06 | CPU CI: small-graph engine test, provenance verify (#4, PR #12) | wrote the fixture and test, classified every test (CPU / data / CUDA) | merged |
 | 2026-10-06 | docs: install, tutorial, API reference (#6, PR #14) | wrote the pages, ran every tutorial step on the GPU and pasted the output | chose how to present the silent DN result; merged |
 | 2026-10-06 | install regime/ and lazily imported modules (PR #15) | found the gap while writing #14, fixed pyproject and test_import.py | merged |
+| 2026-10-06 | v0.3.0 release (#5) | reran the 3 GPU tests via gpu_slot (all pass), bumped versions, drafted release notes | said go after #14 and #15 |

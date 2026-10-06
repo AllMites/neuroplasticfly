@@ -9,8 +9,8 @@ authors:
     email: "danielasis.research@gmail.com"
 repository-code: "https://github.com/AllMites/neuroplasticfly"
 license: MIT
-date-released: "2026-10-02"
-version: 0.2.0
+date-released: "2026-10-06"
+version: 0.3.0
 preferred-citation:
   type: article
   title: "Specific, cumulative and reversible odour learning in a whole-brain connectome model of Drosophila"
