@@ -3,7 +3,7 @@
 # record and is not needed by reproduce.py.
 [project]
 name = "neuroplasticfly"
-version = "0.2.0"
+version = "0.3.0"
 requires-python = ">=3.11"
 dependencies = [
     "torch>=2.6",
