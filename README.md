@@ -52,6 +52,12 @@ CUDA is required. The simulation is one flat tensor of 2.7 M edges stepped at 0.
 there is no supported CPU path, and `reproduce.py` stops before the long run if it does
 not find a device.
 
+**Testing.** CI (`.github/workflows/tests.yml`) runs the CPU-only checks on every push: label
+rules, weight/reach/adaptation maths, `reproduce_paper1.py --verify` (provenance hashes), and
+`test_small_graph.py`, both engines on a synthetic 25-neuron circuit (`tools/small_graph.py`). The
+tests that need the built `data/` or a GPU (most of `regime/`, `rate/`, `learn/`) and the end-to-end
+run (`python reproduce.py`) are manual checks on a CUDA machine.
+
 ## What it does
 
 | Result | Number | Where it comes from |

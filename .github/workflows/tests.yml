@@ -8,7 +8,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # ponytail: CPU torch + numpy only; tests needing the built brain (data/) wait for a small-graph fixture (#4)
+      # ponytail: CPU torch + numpy + scipy; tests needing the built brain (data/) or CUDA stay manual; test_small_graph.py covers the engines on a synthetic circuit (#4)
       # scipy: rate/engine.py, imported by test_import.py. --no-deps: the package itself, not the CUDA/chess stack
       - run: pip install numpy scipy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
       - run: pip install --no-deps -e .
@@ -18,4 +18,6 @@ jobs:
           python regime/test_weights.py
           python regime/test_locator.py
           python test_prereg.py
+          python reproduce_paper1.py --verify
+          python test_small_graph.py
           python test_import.py
