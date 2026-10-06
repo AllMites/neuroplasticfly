@@ -16,5 +16,6 @@ jobs:
           python regime/test_reach.py
           python regime/test_sfa.py
           python regime/test_weights.py
+          python regime/test_locator.py
           python test_prereg.py
           python test_import.py
