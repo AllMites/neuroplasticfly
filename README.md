@@ -182,6 +182,7 @@ mtimes, so the same brain hashes differently on every rebuild.
 ```
 reproduce.py          clone -> rung A, one command (paper 0)
 reproduce_paper1.py   paper 1: --verify hashes, --rescore labels from the shipped logs (CPU)
+prereg.py             preregister, label (PASS/SUBST/MECH) and verify your own run (docs/prereg.md)
 rate/                 paper 1 rate model: engine, calibration, reward fit, learning tests, suite, tests
 paper1/               paper 1 figure and table scripts
 PREREGISTER_rate_*.md paper 1 preregistrations (byte-for-byte, see .gitattributes)
