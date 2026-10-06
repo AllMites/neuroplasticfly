@@ -8,10 +8,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # ponytail: CPU torch + numpy only; tests needing the built brain (data/) wait for a small-graph fixture (#4)
-      - run: pip install numpy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      # ponytail: CPU torch + numpy + scipy (rate engine); tests needing the built brain (data/) or CUDA stay manual; test_small_graph.py covers the engines on a synthetic circuit (#4)
+      - run: pip install numpy scipy torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
       - run: |
           python regime/test_reach.py
           python regime/test_sfa.py
           python regime/test_weights.py
           python test_prereg.py
+          python reproduce_paper1.py --verify
+          python test_small_graph.py
