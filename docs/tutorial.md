@@ -164,8 +164,10 @@ dn_DNg29              0.000 ->    0.000
 
 The whole change is in the approach MBONs, which fall from about 12 Hz to almost nothing, while the avoid MBONs do
 not move at all. In the model, then, training removes the attraction to the odour rather than adding an aversion
-to it. The descending neurons that `readout` reports (DNp01, DNg29, DNg84, DNa02 and DNp04) are silent during this
-odour trial both before and after training, so in this protocol the learned change does not reach them.
+to it. The zeros in the DN rows are a result, not a broken readout: in this model the odour signal stops before the
+descending neurons that `readout` reports (DNp01, DNg29, DNg84, DNa02 and DNp04), which stay silent during the odour
+trial both before and after training, so in this protocol the learned change shows up at the MBONs and does not
+reach them. Step 5 locates where the signal stops.
 
 `rates` holds one rate per neuron, indexed in the order of `data/neuron_meta.npz`, and `C.ct` and `C.cc` hold every
 neuron's cell type and class, so any cell type can be read by name:
