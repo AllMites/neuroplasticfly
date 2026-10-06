@@ -775,7 +775,7 @@ wheels = [
 [[package]]
 name = "neuroplasticfly"
 version = "0.2.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "chess" },
     { name = "flypoke" },
