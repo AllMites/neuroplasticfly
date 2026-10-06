@@ -15,3 +15,4 @@ Running log for the JOSS AI-usage disclosure (issue #7). Started 2026-10-04; ent
 | Date | Change | AI did | Author did |
 |---|---|---|---|
 | 2026-10-04 | JOSS roadmap issues #1-#7 | drafted the issue text | chose the scope (S2, JOSS 2027-03) |
+| 2026-10-06 | prereg.py, template, docs/prereg.md (#3) | wrote the code, test and docs from the author's existing workflow | chose to generalise the workflow and approved the PR |
