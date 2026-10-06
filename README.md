@@ -35,6 +35,19 @@ That run reproduced the host's numbers exactly -- paired +10.90, unpaired +1.51,
 never-paired +0.53, lesion -1.10 Hz -- from nothing but the clone and the two
 downloads, and left the working tree clean.
 
+To import it from your own code, install the clone editable (`uv sync` does this, or
+`pip install -e .`), then from any directory:
+
+```python
+from neuroplasticfly import engine          # gpu_sim.py, the spiking engine
+from neuroplasticfly.learn import plastic   # learn/plastic.py, the plasticity rule
+from neuroplasticfly.rate import engine as rate_engine  # rate/engine.py, the rate model
+```
+
+The files stay where they are (their paths are hashed in `PROVENANCE.json`); the package
+only aliases them. The CLIs install as `neuroplasticfly-reproduce`,
+`neuroplasticfly-reproduce-paper1` and `neuroplasticfly-prereg`.
+
 CUDA is required. The simulation is one flat tensor of 2.7 M edges stepped at 0.1 ms;
 there is no supported CPU path, and `reproduce.py` stops before the long run if it does
 not find a device.

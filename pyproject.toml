@@ -19,6 +19,11 @@ dependencies = [
     "flypoke @ git+https://github.com/vshapenko/flypoke@24814fe83224ca2d25c116c1107440b877b07762",  # scripts/build_data.py loader only
 ]
 
+[project.scripts]
+neuroplasticfly-reproduce = "neuroplasticfly:_reproduce"
+neuroplasticfly-reproduce-paper1 = "reproduce_paper1:main"
+neuroplasticfly-prereg = "prereg:main"
+
 [project.optional-dependencies]
 # rate/gain_bound.py only: recomputes the gain cap (rate/gain_bound.json ships) from a sibling flyvis checkout.
 flyvis-cap = ["h5py>=3.11"]
@@ -30,3 +35,12 @@ torch = { index = "pytorch-cu128" }
 name = "pytorch-cu128"
 url = "https://download.pytorch.org/whl/cu128"
 explicit = true
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+# The code stays at the paths PROVENANCE.json hashes; neuroplasticfly/ aliases it (see its docstring).
+[tool.setuptools]
+py-modules = ["gpu_sim", "prereg", "reproduce", "reproduce_paper1"]
+packages = ["neuroplasticfly", "learn", "rate"]
