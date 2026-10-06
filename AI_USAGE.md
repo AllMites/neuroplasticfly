@@ -18,3 +18,6 @@ Running log for the JOSS AI-usage disclosure (issue #7). Started 2026-10-04; ent
 | 2026-10-04 | AI_USAGE.md log (#7, PR #8) | drafted the log structure and the pre-2026-10-04 summary | filled the bracketed fields, merged |
 | 2026-10-04 | CPU test workflow (#4, PR #9) | wrote tests.yml and chose which data-free tests run | merged |
 | 2026-10-06 | prereg.py, template, docs/prereg.md (#3, PR #10) | wrote the code, test and docs from the author's existing workflow | asked for #3 as a public PR; reviews before merge |
+| 2026-10-06 | installable package without moving hashed files (#1, PR #13) | wrote the package shim, entry points, test_import.py; ran --verify, --rescore and reproduce.py (unchanged numbers) | asked for the open issues in parallel; merged |
+| 2026-10-06 | signal locator API (#2, PR #11) | wrote regime/locator.py, docs/probes.md, test; chose the slope definition from the author's earlier locators | merged |
+| 2026-10-06 | CPU CI: small-graph engine test, provenance verify (#4, PR #12) | wrote the fixture and test, classified every test (CPU / data / CUDA) | merged |

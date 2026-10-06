@@ -22,3 +22,4 @@ brain_state/repro_*
 # to redistribute. christie_supp/README.md says where to fetch them.
 docs/superpowers/reward-path/christie_supp/*
 !docs/superpowers/reward-path/christie_supp/README.md
+.claude/
